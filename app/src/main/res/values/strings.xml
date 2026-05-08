@@ -377,4 +377,9 @@
     <string name="sendAsBoard">As board</string>
     <string name="sendAsText">As text</string>
 
+    <!-- CTF strings -->
+    <string name="fName">FLAG</string>
+    <string name="fStart">{</string>
+    <string name="fEnd">}</string>
+
 </resources>
