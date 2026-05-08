@@ -30,6 +30,8 @@ class RegisterActivity : AuthActivity() {
             insets
         }
 
+        binding.registerSubmit.isEnabled = false
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.registerSubmit.setOnClickListener {
@@ -50,10 +52,10 @@ class RegisterActivity : AuthActivity() {
             }
         }
 
-        binding.consent1.setOnCheckedChangeListener { _, _ -> refresh() }
-        binding.consent2.setOnCheckedChangeListener { _, _ -> refresh() }
-        binding.consent3.setOnCheckedChangeListener { _, _ -> refresh() }
-        binding.consent4.setOnCheckedChangeListener { _, _ -> refresh() }
+//        binding.consent1.setOnCheckedChangeListener { _, _ -> refresh() }
+//        binding.consent2.setOnCheckedChangeListener { _, _ -> refresh() }
+//        binding.consent3.setOnCheckedChangeListener { _, _ -> refresh() }
+//        binding.consent4.setOnCheckedChangeListener { _, _ -> refresh() }
 
         findViewById<Button>(R.id.registerPrivacyPolicy).setOnClickListener {
             openPrivacyPolicy()

@@ -32,6 +32,8 @@ class LoginActivity : AuthActivity() {
             insets
         }
 
+        binding.loginSubmit.isEnabled = false
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.loginSubmit.setOnClickListener {
