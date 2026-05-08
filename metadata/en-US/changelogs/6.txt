@@ -1,0 +1,7 @@
+- Offline computer analysis
+- Improved offline bot
+- Show opening position names
+
+- Board animation improvements
+- Support hyperlinks in server announcements
+- Added russian translation

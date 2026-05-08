@@ -1,0 +1,6 @@
+- custom game configurations (casual/rated, time selection)
+- show info about a player
+- show a rating history chart on the profile page
+- show number of spectators in a game
+- show user titles (like GM or BOT)
+- don't log sensitive data

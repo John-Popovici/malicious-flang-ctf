@@ -1,0 +1,2 @@
+- Daily games
+- Android 15 & 16 optimization

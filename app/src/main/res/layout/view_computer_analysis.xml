@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <Button
+        android:id="@+id/requestAnalysisButton"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="?colorPrimary"
+        android:text="@string/serverAnalysis" />
+
+    <LinearLayout
+        android:id="@+id/analysisContentParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Tab indicators -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="?android:attr/colorBackground">
+
+            <TextView
+                android:id="@+id/tabOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/analysisTabOverview"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/tabChart"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/analysisTabChart"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackground" />
+
+            <TextView
+                android:id="@+id/tabMoves"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/analysisTabMoves"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:padding="6dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?selectableItemBackground" />
+
+        </LinearLayout>
+
+        <!-- ViewPager2 for content -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/analysisViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/analyzingParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/analyzingProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:max="100"
+            android:progressDrawable="@drawable/circular_progress"/>
+
+        <TextView
+            android:id="@+id/analyzingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/analyzingGame"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+    </LinearLayout>
+
+</FrameLayout>

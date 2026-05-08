@@ -1,0 +1,3 @@
+- Added experimental Flang rule changes
+- Use experimental NNUE in the offline bot
+- Improve computer analysis

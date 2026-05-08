@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/wf"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_tv"
+            android:icon="@drawable/ic_tv_live"
+            android:title="@string/flangTv" />
+
+        <item
+            android:id="@id/nav_chat"
+            android:icon="@drawable/ic_chat"
+            android:title="@string/globalChat" />
+
+        <item
+            android:id="@id/nav_offline_game"
+            android:icon="@drawable/ic_phone"
+            android:title="@string/offline" />
+        <item
+            android:id="@+id/nav_puzzles"
+            android:icon="@drawable/ic_training"
+            android:title="@string/puzzles" />
+        <item
+            android:id="@id/nav_analysis"
+            android:icon="@drawable/ic_analysis"
+            android:title="@string/analysisTitle" />
+        <item
+            android:id="@id/nav_next"
+            android:icon="@drawable/ic_book"
+            android:title="@string/nextBotGame" />
+        <item
+            android:id="@+id/nav_play_over_board"
+            android:icon="@drawable/ic_phone"
+            android:title="@string/playOverBoard" />
+
+        <item
+            android:id="@id/nav_profile"
+            android:icon="@drawable/ic_person"
+            android:title="@string/yourProfile" />
+
+        <item
+            android:id="@id/nav_top"
+            android:icon="@drawable/ic_group"
+            android:title="@string/topPlayers" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/settings" />
+    </group>
+</menu>

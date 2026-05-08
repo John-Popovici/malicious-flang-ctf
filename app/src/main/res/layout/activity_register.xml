@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity">
+
+    <EditText
+        android:id="@+id/registerUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/registerPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <CheckBox
+        android:id="@+id/consent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerConsentPrivacyPolicy" />
+
+    <CheckBox
+        android:id="@+id/consent2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerConsentAssistance" />
+
+    <CheckBox
+        android:id="@+id/consent3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerConsentNice" />
+
+    <CheckBox
+        android:id="@+id/consent4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/registerConsentMultipleAccounts" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/registerPrivacyPolicy"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="3dp"
+            android:text="@string/privacyPolicy" />
+
+        <Button
+            android:id="@+id/registerSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_margin="3dp"
+            android:enabled="false"
+            android:text="@string/actionRegister"
+            style="@style/Widget.Material3.Button" />
+
+    </LinearLayout>
+</LinearLayout>

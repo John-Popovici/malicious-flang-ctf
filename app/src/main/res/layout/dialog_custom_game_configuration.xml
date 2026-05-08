@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/customGameType"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/customGameType"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/customGameTypeLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gameLive" />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/customGameTypeDaily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gameDaily" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/customGameMode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/customGameMode"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/customGameModeCasual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/modeCasual" />
+
+        <Button
+            style="?attr/materialButtonOutlinedStyle"
+            android:id="@+id/customGameModeRated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/modeRated" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/customGameTime"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/timeChips"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime30s"
+            android:text="30 s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime1m"
+            android:text="1 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime2m"
+            android:text="2 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime3m"
+            android:text="3 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime5m"
+            android:text="5 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime10m"
+            android:text="10 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime15m"
+            android:text="15 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime20m"
+            android:text="20 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime30m"
+            android:text="30 min"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime1h"
+            android:text="1 h"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Daily game time options (days) -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime1d"
+            android:text="1 d"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime2d"
+            android:text="2 d"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime3d"
+            android:text="3 d"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipTime7d"
+            android:text="7 d"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/incrementLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Time Increment"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/incrementChips"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp" >
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement0"
+            android:text="0s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement1"
+            android:text="1s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement2"
+            android:text="2s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement3"
+            android:text="3s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement5"
+            android:text="5s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIncrement10"
+            android:text="10s"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/customGameRatingDiff"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/ratingChips"
+        app:singleSelection="true"
+        app:selectionRequired="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRating100"
+            android:text="±100"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRating200"
+            android:text="±200"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRating300"
+            android:text="±300"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRating400"
+            android:text="±400"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRating500"
+            android:text="±500"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipRatingInfinite"
+            android:text="@string/infiniteTimeChar"
+            android:checkable="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+</LinearLayout>
+
+</ScrollView>

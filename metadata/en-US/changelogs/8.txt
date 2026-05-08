@@ -1,0 +1,6 @@
+- Improved computer speed by 2x
+- Use level 3 for local computer analysis (previously 2)
+- Use level 4 for offline games (previously 3)
+- Choose the computer strength in offline games
+- New charts showing played games, active players, average rating
+- Added BlankBot to the server that features a changed algorithm

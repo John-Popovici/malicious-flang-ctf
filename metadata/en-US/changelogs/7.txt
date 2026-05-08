@@ -1,0 +1,4 @@
+- Global chat room
+- Support new flang notations (v2)
+- Import games
+- Faster offline bot and hint calculation

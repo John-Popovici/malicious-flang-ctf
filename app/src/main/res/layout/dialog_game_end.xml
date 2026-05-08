@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <!-- Game result icon -->
+    <TextView
+        android:id="@+id/resultIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="⭐"
+        android:textSize="32sp"
+        android:gravity="center"
+        android:textColor="@color/green_700" />
+
+    <!-- Main title (You won! / You lost!) -->
+    <TextView
+        android:id="@+id/resultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameEndWon"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textColor="@color/green_400" />
+
+    <!-- Subtitle (by timeout / by resign / Flang) -->
+    <TextView
+        android:id="@+id/resultSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gameEndByFlang"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:textColorSecondary"
+        />
+
+    <!-- Player ratings info -->
+    <LinearLayout
+        android:id="@+id/playersInfoContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="12dp"
+        android:gravity="center">
+
+        <!-- White player info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/whitePlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Player1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/whitePlayerRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1500"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/whitePlayerRatingDiff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+10"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- VS separator -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vs"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:textColorSecondary"
+            android:layout_marginHorizontal="16dp" />
+
+        <!-- Black player info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/blackPlayerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Player2"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/blackPlayerRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1450"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/blackPlayerRatingDiff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-10"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Analysis button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAnalysis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/analysisTitle"
+        android:textSize="18sp"
+        android:backgroundTint="@color/green_400"
+        android:textAllCaps="false"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        android:textColor="@android:color/white" />
+
+    <!-- Request new game button -->
+    <Button
+        android:id="@+id/btnRequestNewGame"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/requestNewGame"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="?colorPrimary" />
+
+</LinearLayout>

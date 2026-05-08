@@ -1,0 +1,6 @@
+- Make "Play over board" persistent
+- Show games in the OpeningDatabase
+- Bot Performance (> 3x)
+- Iterative deepening for Hints
+- Profile names in the chat and FlangTV are clickable now
+- Bugfixes

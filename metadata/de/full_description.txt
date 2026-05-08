@@ -1,0 +1,10 @@
+Flang ist ein Brettspiel, das dem Schach oder Shogi ähnelt, sich aber durch einige spezielle Regeln unterscheidet. Wenn Sie Schach oder andere Brettspiele mögen, sollten Sie dieses Spiel vielleicht ausprobieren.
+
+Das Einzigartige an Flang ist die Freeze-Mechanik. Sobald du eine deiner Figuren bewegst, kann sie sich im nächsten Zug nicht mehr bewegen, da sie eingefroren ist, mit Ausnahme des Königs.
+
+App-Funktionen:
+
+- Flang spielen: offline und online
+- Flang TV: andere Leute Flang spielen sehen
+- Profil: gespielte Partien ansehen
+- Analysebrett: untersuche deine Partien erneut, optional auch mit Computer-Hinweisen

@@ -1,0 +1,141 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingQuantity,ImpliedQuantity">
+    <string name="app_name">Фланг</string>
+    <string name="loading">Загрузка</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="actionLogin">Войти</string>
+    <string name="loggedIn">Вы вошли</string>
+    <string name="loggedOut">Вы вышли</string>
+    <string name="actionRegister">Регистрация</string>
+    <string name="offline">Оффлайн</string>
+    <string name="online">Онлайн</string>
+    <string name="onlineBot">Онлайн бот</string>
+    <string name="actionResign">Сдаться</string>
+    <string name="dialogShareTitle">Поделиться доской</string>
+    <string name="dialogEnterNameMessage">Пожалуйста, введите имя для текущей позиции:</string>
+    <string name="actionCancel">Отмена</string>
+    <string name="actionShare">Поделиться</string>
+    <string name="actionSwap">Поменяться сторонами</string>
+    <string name="actionBack">Назад</string>
+    <string name="actionForward">Вперед</string>
+    <string name="analysisTitle">Анализ</string>
+    <string name="computerHint">Подсказка</string>
+    <string name="gameEndFlang">Фланг!</string>
+    <string name="gameEndTimeout">Время вышло!</string>
+    <string name="gameEndResign">Сдался!</string>
+    <string name="gameEndUnknown">Партия окончена!</string>
+    <string name="infiniteTimeChar" translatable="false">∞</string>
+    <string name="menu_home">Главная</string>
+    <string name="modeRated">Рейтинг</string>
+    <string name="modeCasual">Обычная</string>
+    <string name="serverStatusMessage">%d игроков / %d партий в игре</string>
+    <string name="requestingGame">Запрашиваю партию</string>
+    <string name="waitingForOpponent">Ожидание соперника</string>
+    <string name="menu_game">Партия</string>
+    <string name="gameRequestNotFound">Запрос партии больше не доступен</string>
+    <string name="cancellingRequest">Отмена запроса</string>
+    <string name="offlineBotGame">Оффлайн партия с ботом</string>
+    <string name="gameCross" translatable="false">⨯</string>
+    <string name="gameInfoHeader" translatable="false">%s - %s - %s</string>
+    <string name="gameInfoAge">%s назад</string>
+    <string name="flangTv">Фланг ТВ</string>
+    <string name="tvNoGamesAvailable">В настоящее время на Фланг ТВ нет партий, пожалуйста, подождите</string>
+    <string name="hintsEnabled">Подсказки включены</string>
+    <string name="hintsDisabled">Подсказки отключены</string>
+    <string name="profileInfoString">
+        Участник с: %s\n
+        Партий: %d
+    </string>
+    <plurals name="minutesAgo">
+        <item quantity="one">одна минута назад</item>
+        <item quantity="other">%d минут назад</item>
+    </plurals>
+    <plurals name="hoursAgo">
+        <item quantity="one">один час назад</item>
+        <item quantity="other">%d часов назад</item>
+    </plurals>
+    <plurals name="daysAgo">
+        <item quantity="one">один день назад</item>
+        <item quantity="other">%d дней назад</item>
+    </plurals>
+    <plurals name="weeksAgo">
+        <item quantity="one">одна неделя назад</item>
+        <item quantity="other">%d недель назад</item>
+    </plurals>
+    <plurals name="monthsAgo">
+        <item quantity="one">один месяц назад</item>
+        <item quantity="other">%d месяцев назад</item>
+    </plurals>
+    <plurals name="yearsAgo">
+        <item quantity="one">один год назад</item>
+        <item quantity="other">%d лет назад</item>
+    </plurals>
+    <string name="momentsAgo">несколько минут назад</string>
+    <string name="gameResult" translatable="false">%s, %s</string>
+    <string name="white">Белый</string>
+    <string name="black">Чёрный</string>
+    <string name="isVictorious">%s победил</string>
+    <string name="resultResigned">%s сдался</string>
+    <string name="resultTimedOut">%s время вышло</string>
+    <string name="flang">Фланг</string>
+    <string name="gameRunning">Партия запущена</string>
+    <string name="resultDraw">Рисунок</string>
+    <string name="playerProfile">Профиль игрока</string>
+    <string name="yourProfile">Ваш профиль</string>
+    <string name="registerConsentPrivacyPolicy">Я принимаю политику конфиденциальности.</string>
+    <string name="registerConsentAssistance">Я согласен, что ни в коем случае не буду получать помощь во время своих партий (от шахматного компьютера, книги, базы данных или другого человека).</string>
+    <string name="registerConsentNice">Я согласен, что всегда буду вежлив с другими игроками.</string>
+    <string name="registerConsentMultipleAccounts">Я согласен, что не буду создавать несколько учетных записей.</string>
+    <string name="privacyPolicy">Политика конфиденциальности</string>
+    <string name="questionLoginTitle">У вас есть учетная запись?</string>
+    <string name="questionLoginMessage">Вы хотите войти в существующую учетную запись или зарегистрировать новую?</string>
+    <string name="tutorialTitle">Обучение</string>
+    <string name="tutorialQuestion">Вы хотите изучить основные правила фланга?</string>
+    <string name="okay">Хорошо</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="tutorialIntroductionTitle">Введение</string>
+    <string name="tutorialIntroductionMessage">Это обучение призвано объяснить основные правила фланга. То, что вы видите здесь, - это стандартная настройка доски. Нажмите на стрелку вправо внизу, чтобы продолжить.</string>
+    <string name="tutorialKingTitle">Король</string>
+    <string name="tutorialKingMessage">Для начала давайте узнаем, как двигаются фигуры. Король может двигаться в любом направлении, но только на одну клетку.</string>
+    <string name="tutorialPawnTitle">Пешка</string>
+    <string name="tutorialPawnMessage">Пешка может двигаться только вперед - прямо и по диагонали - и будет переведена в уни на последнем ряду. В отличие от шахмат, пешки могут захватывать в любом направлении.</string>
+    <string name="tutorialRookTitle">Ладья</string>
+    <string name="tutorialRookMessage">Ладья может двигаться в вертикальном и горизонтальном направлении.</string>
+    <string name="tutorialHorseTitle">Конь</string>
+    <string name="tutorialHorseMessage">Конь (!) движется подобно коню в шахматах: он может попасть на любую ближайшую клетку, не находящуюся в том же ряду, линии или диагонале. (Фигура-Л)</string>
+    <string name="tutorialUniTitle">Уни</string>
+    <string name="tutorialUniMessage">Уни сочетает в себе шахматную королеву и коня. Она может двигаться по вертикали, горизонтали и диагонали, а также выполнять любые движения, которые может делать конь.</string>
+    <string name="tutorialFlangerTitle">Флэнжер</string>
+    <string name="tutorialFlangerMessage">Флэнжер может двигаться зигзагообразно по горизонтали и вертикали. Это означает, что он может находиться только на белых квадратах.</string>
+    <string name="tutorialFreezeTitle">Заморозка</string>
+    <string name="tutorialFreezeMessage">Механика заморозки: Вы не можете передвинуть фигуру дважды, потому что она будет заморожена на следующем ходу. Король не может быть заморожен.</string>
+    <string name="tutorialWinBaseTitle">Победа - базовая линия</string>
+    <string name="tutorialWinBaseMessage">Первый способ победить - переместить своего короля на базовую линию соперника.</string>
+    <string name="tutorialWinCaptureTitle">Победа - захват короля</string>
+    <string name="tutorialWinCaptureMessage">Вы также победите, если захватите короля соперника.</string>
+    <string name="tutorialCompleteTitle">Переходим к делу</string>
+    <string name="tutorialCompleteMessage">Теперь вы знаете все основные вещи, необходимые для хорошей игры во Фланг. Вы можете перезапустить обучение в любое время, если вам это понадобится. Кроме того, я надеюсь, что вы получите массу удовольствия от игры во Фланг! ;)</string>
+    <string name="tutorialTargetCapture">Попробуйте захватить фигуры противника</string>
+    <string name="tutorialTargetReachLastRow">Попробуйте дойти до последнего ряда своей пешкой</string>
+    <string name="tutorialTargetWin">Попробуйте выиграть партию</string>
+    <string name="actionLearn">Обучение</string>
+    <string name="tutorialNext">Далее</string>
+    <string name="topPlayers">Лучшие игроки</string>
+    <string name="onlinePlayers">Онлайн игроки</string>
+    <string name="serverOffline">Сервер в данный момент находится в оффлайне</string>
+    <string name="customGameTitle">Пользовательская партия</string>
+    <string name="customGameMode">Режим игры</string>
+    <string name="customGameTime">Время</string>
+    <string name="customGameRatingDiff">Разница в рейтинге</string>
+    <string name="actionRequest">Запросить</string>
+    <string name="playerInfo">Информация об игроке</string>
+    <string name="playerGames">Партии</string>
+    <string name="userSummary">Участник с: %s\nПартий: %d</string>
+    <string name="rating">Рейтинг</string>
+    <string name="ratingHistory">История рейтинга</string>
+    <string name="openingDatabaseEnabled">Открытие базы данных включено</string>
+    <string name="openingDatabaseDisabled">Открытие базы данных отключено</string>
+    <string name="gameRunningYourMove">Игра идёт, ваш ход</string>
+</resources>

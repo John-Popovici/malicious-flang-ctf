@@ -1,0 +1,4 @@
+- Opening database
+
+- Make profile page invisible for anonymous users
+- Detect invalid user sessions

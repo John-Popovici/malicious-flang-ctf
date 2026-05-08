@@ -1,0 +1,2 @@
+- Show server announcements
+- Show top rated/online players

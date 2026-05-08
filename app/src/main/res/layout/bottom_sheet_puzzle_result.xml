@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="@drawable/bottom_sheet_background">
+
+    <!-- Success indicator -->
+    <TextView
+        android:id="@+id/puzzleResultIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🎉"
+        android:textSize="48sp"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Success message -->
+    <TextView
+        android:id="@+id/puzzleResultTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/puzzleSolved"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textColor="@color/green_400"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Rating display -->
+    <LinearLayout
+        android:id="@+id/ratingSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/currentRatingLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rating"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:textColorPrimary" />
+
+        <TextView
+            android:id="@+id/currentRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:textColorPrimary"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/ratingChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!-- Rating question -->
+    <TextView
+        android:id="@+id/ratingQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/howDidYouLikePuzzle"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?android:textColorPrimary"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Voting buttons row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVoteUp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="8dp"
+            android:text="@string/voteGood"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:strokeColor="@color/green_400"
+            android:textColor="@color/green_400"
+            app:cornerRadius="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnVoteDown"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="@string/voteBad"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            app:strokeColor="@color/red_700"
+            android:textColor="@color/red_700"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+
+    <!-- Next puzzle button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNextPuzzle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nextPuzzle"
+        android:textSize="18sp"
+        android:backgroundTint="@color/green_400"
+        android:textAllCaps="false"
+        android:paddingVertical="16dp"
+        app:cornerRadius="8dp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Skip voting button -->
+    <Button
+        android:id="@+id/btnSkipVoting"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/continueOnBoard"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="?android:textColorSecondary" />
+
+</LinearLayout>

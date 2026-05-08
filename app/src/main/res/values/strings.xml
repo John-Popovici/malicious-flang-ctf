@@ -1,0 +1,380 @@
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+    <string name="app_name">Flang</string>
+    <string name="loading">Loading</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="actionLogin">Login</string>
+    <string name="loggedIn">Logged in</string>
+    <string name="loggedOut">Logged out</string>
+    <string name="actionRegister">Register</string>
+    <string name="offline">Offline</string>
+    <string name="online">Online</string>
+    <string name="onlineBot">Online Bot</string>
+    <string name="actionResign">Resign</string>
+    <string name="dialogShareTitle">Share board</string>
+    <string name="dialogEnterNameMessage">Please enter a name for the current position:</string>
+    <string name="actionCancel">Cancel</string>
+    <string name="actionShare">Share</string>
+    <string name="copyFBN">Copy Position (FBN)</string>
+    <string name="copyFMN">Copy Game (FMN)</string>
+    <string name="settings">Settings</string>
+    <string name="profileSection">Profile</string>
+    <string name="appSection">App</string>
+    <string name="linksSection">Links</string>
+    <string name="changePassword">Change password</string>
+    <string name="logout">Logout</string>
+    <string name="moveConfirmations">Move confirmations for daily games</string>
+    <string name="sourceCode">Source code</string>
+    <string name="privacyPolicy">Privacy policy</string>
+    <string name="changelog">Changelog</string>
+    <string name="openSourceLibraries">Open source libraries</string>
+    <string name="reportBug">Report a bug</string>
+    <string name="sendFeedback">Send feedback to developer</string>
+    <string name="telegramChat">Community chat (Telegram)</string>
+    <string name="matrixChat">Community chat (Matrix)</string>
+    <string name="changePasswordTitle">Change Password</string>
+    <string name="currentPassword">Current password</string>
+    <string name="newPassword">New password</string>
+    <string name="confirmNewPassword">Confirm new password</string>
+    <string name="changePasswordNote">Note: Changing your password will log you out of all other sessions.</string>
+    <string name="passwordChanged">Password changed successfully</string>
+    <string name="passwordChangeError">Failed to change password: %s</string>
+    <string name="passwordMismatch">New passwords do not match</string>
+    <string name="passwordEmpty">Password cannot be empty</string>
+    <string name="logoutConfirm">Are you sure you want to logout?</string>
+    <string name="logoutTitle">Logout</string>
+    <string name="login">Login</string>
+    <string name="shareGame">Share Game</string>
+    <string name="sendToGlobalChat">Send to global chat</string>
+    <string name="copiedToClipboard">Copied to clipboard</string>
+    <string name="copyingFailed">Failed to copy</string>
+    <string name="sendingFailed">Sending failed: %s</string>
+    <string name="sendGame">Send game</string>
+    <string name="actionSend">Send</string>
+    <string name="cannotDecryptBoard">Cannot read game data</string>
+    <string name="actionSwap">Swap sides</string>
+    <string name="actionBack">Back</string>
+    <string name="importFailed">Import failed</string>
+    <string name="importGame">Import game</string>
+    <string name="actionForward">Forward</string>
+    <string name="analysisTitle">Analysis</string>
+    <string name="computerHint">Hint</string>
+    <string name="gameEndFlang">Flang!</string>
+    <string name="gameEndTimeout">Time is up!</string>
+    <string name="gameEndResign">Resigned!</string>
+    <string name="gameEndUnknown">Game is over!</string>
+    <string name="infiniteTimeChar" translatable="false">∞</string>
+    <string name="searchUsers">Search Users</string>
+    <string name="userSearchHint">Enter username to search…</string>
+    <string name="noUsersFound">No users found</string>
+    <string name="searchError">Search failed. Please try again.</string>
+    <string name="menu_home">Home</string>
+    <string name="modeRated">Rated</string>
+    <string name="modeCasual">Casual</string>
+    <string name="serverStatusMessage">%d players / %d games in play</string>
+    <string name="requestingGame">Requesting game</string>
+    <string name="waitingForOpponent">Waiting for opponent</string>
+    <string name="menu_game">Game</string>
+    <string name="puzzles">Puzzles</string>
+    
+    <!-- Puzzle strings -->
+    <string name="puzzleSolved">Puzzle Solved!</string>
+    <string name="puzzleInfo">Puzzle #%1$d (%2$d)</string>
+    <string name="howDidYouLikePuzzle">How did you like this puzzle?</string>
+    <string name="voteGood">👍 Good</string>
+    <string name="voteBad">👎 Bad</string>
+    <string name="nextPuzzle">Next Puzzle</string>
+    <string name="continueOnBoard">Continue on board</string>
+    <string name="incorrectMove">Incorrect Move</string>
+    <string name="incorrectMoveMessage">That wasn\'t the right move. The move has been reverted.</string>
+    <string name="tryAgain">Try Again</string>
+    <string name="exit">Exit</string>
+    <string name="thanksForFeedback">Thanks for your feedback!</string>
+    <string name="noPuzzlesAvailable">No puzzles available</string>
+    <string name="failedToLoadPuzzles">Failed to load puzzles: %s</string>
+    <string name="failedToLoadPuzzle">Failed to load puzzle: %s</string>
+    <string name="gameRequestNotFound">Game request isn\'t available anymore</string>
+    <string name="cancellingRequest">Cancelling request</string>
+    <string name="offlineBotGame">Offline Bot Game</string>
+    <string name="nextBotGame">Next Variant Test</string>
+    <string name="nextGameDescription">Hi, we are currently experimenting with rule changes for Flang. In short those are:\n\n\n- Pawn dash: pawns can hop over each other when in front of each other\n- Horse rider: pawns can go onto a horse to ride it and can also leave it again\n- Fast horse: horses don\'t get frozen when capturing a piece\n\nHere you can play against bots to experiment a bit.</string>
+    <string name="gameCross" translatable="false">⨯</string>
+    <string name="gameInfoHeader" translatable="false">%s • %s • %s</string>
+    <string name="gameInfoAge">%s ago</string>
+    <string name="flangTv">Flang TV</string>
+    <string name="tvNoGamesAvailable">Currently there are no games shown in TV, please wait</string>
+    <string name="hintsEnabled">Hints enabled</string>
+    <string name="hintsDisabled">Hints disabled</string>
+    <string name="profileInfoString">
+        Member since: %s\n
+        Games: %d
+    </string>
+    <plurals name="minutesAgo">
+        <item quantity="one">one minute ago</item>
+        <item quantity="other">%d minutes ago</item>
+    </plurals>
+    <plurals name="hoursAgo">
+        <item quantity="one">one hour ago</item>
+        <item quantity="other">%d hours ago</item>
+    </plurals>
+    <plurals name="daysAgo">
+        <item quantity="one">one day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
+    <plurals name="weeksAgo">
+        <item quantity="one">one week ago</item>
+        <item quantity="other">%d weeks ago</item>
+    </plurals>
+    <plurals name="monthsAgo">
+        <item quantity="one">one month ago</item>
+        <item quantity="other">%d months ago</item>
+    </plurals>
+    <plurals name="yearsAgo">
+        <item quantity="one">one year ago</item>
+        <item quantity="other">%d years ago</item>
+    </plurals>
+    <string name="momentsAgo">moments ago</string>
+    <string name="gameResult" translatable="false">%s, %s</string>
+    <string name="white">White</string>
+    <string name="black">Black</string>
+    <string name="isVictorious">%s is victorious</string>
+    <string name="resultResigned">%s resigned</string>
+    <string name="resultTimedOut">%s timed out</string>
+    <string name="flang" translatable="false">Flang</string>
+    <string name="gameRunning">Game is running</string>
+    <string name="resultDraw">Draw</string>
+    <string name="playerProfile">Player Profile</string>
+    <string name="yourProfile">Your Profile</string>
+    <string name="globalChat">Global Chat</string>
+    <string name="registerConsentPrivacyPolicy">I accept the privacy policy.</string>
+    <string name="registerConsentAssistance">I agree that I will at no time receive assistance during my games (from a chess computer, book, database or another person).</string>
+    <string name="registerConsentNice">I agree that I will always be nice to other players.</string>
+    <string name="registerConsentMultipleAccounts">I agree that I will not create multiple accounts.</string>
+    <string name="questionLoginTitle">Do you have an account</string>
+    <string name="questionLoginMessage">Do you want to log into your existing account or register a new one?</string>
+    <string name="tutorialTitle">Tutorial</string>
+    <string name="tutorialQuestion">Do you want to learn the basic rules of flang?</string>
+    <string name="okay">Okay</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="tutorialIntroductionTitle">Introduction</string>
+    <string name="tutorialIntroductionMessage">This tutorial aims to explain the basic rules of flang. What you see here is the default board setup. Click on the right arrow on the bottom to continue.</string>
+    <string name="tutorialKingTitle">The King</string>
+    <string name="tutorialKingMessage">Let\'s start by learning how the pieces move. The King can move in any direction but only one square.</string>
+    <string name="tutorialPawnTitle">The Pawn</string>
+    <string name="tutorialPawnMessage">The pawn can move only forward - straight and diagonal - and will be promoted to a Uni on the last row. Unlike chess, pawns can capture in any direction.</string>
+    <string name="tutorialRookTitle">The Rook</string>
+    <string name="tutorialRookMessage">The rook can move in vertical and horizontal direction.</string>
+    <string name="tutorialHorseTitle">The Horse</string>
+    <string name="tutorialHorseMessage">The horse (!) moves like the knight in chess: It can reach any of the closest squares that are not on the same rank, file, or diagonal. (l-Shape)</string>
+    <string name="tutorialUniTitle">Uni</string>
+    <string name="tutorialUniMessage">A Uni combines a chess-queen and a horse. It can move in vertical, horizontal and diagonal direction plus any move a horse can do.</string>
+    <string name="tutorialFlangerTitle">The Flanger</string>
+    <string name="tutorialFlangerMessage">A flanger can move in a zig-zag way horizontally and vertically. That means, that he can only be on white squares.</string>
+    <string name="tutorialFreezeTitle">Freeze</string>
+    <string name="tutorialFreezeMessage">The Freeze Mechanism: You cannot move a piece twice because it is frozen in the next move. The king cannot be frozen.</string>
+    <string name="tutorialWinBaseTitle">Winning - baseline</string>
+    <string name="tutorialWinBaseMessage">The first option to win is by moving your king into the opponent\'s baseline.</string>
+    <string name="tutorialWinCaptureTitle">Winning - capture the king</string>
+    <string name="tutorialWinCaptureMessage">You also win when you capture the opponent\'s king.</string>
+    <string name="tutorialCompleteTitle">Let\'s go</string>
+    <string name="tutorialCompleteMessage">Now you know all the basic stuff you need to play a good game of flang. You can restart the tutorial at any time if you need it. Apart from that, I hope you have a lot fun playing Flang! ;)</string>
+    <string name="tutorialTargetCapture">Try to capture the opponent\'s pieces</string>
+    <string name="tutorialTargetReachLastRow">Try to reach the last row with your pawn</string>
+    <string name="tutorialTargetWin">Try to win the game</string>
+    <string name="actionLearn">Learn</string>
+    <string name="tutorialNext">Next</string>
+    <string name="topPlayers">Top Players</string>
+    <string name="topPlayersHint">Players with the highest rating that have played at least 15 games in that category and we active in that category in the last year</string>
+    <string name="onlinePlayers">Online Players</string>
+    <string name="serverOffline">The server is currently offline</string>
+    <string name="customGameTitle">Custom Game</string>
+    <string name="customGameMode">Game Mode</string>
+    <string name="customGameTime">Time</string>
+    <string name="customGameRatingDiff">Rating Difference</string>
+    <string name="actionRequest">Request</string>
+    <string name="playerInfo">Player Info</string>
+    <string name="playerGames">Games</string>
+    <string name="userSummary">Member since: %s\nGames: %d</string>
+    <string name="rating">Rating</string>
+    <string name="ratingHistory">Rating history</string>
+    <string name="puzzleRatingFormat">(Puzzle: %d)</string>
+    <string name="openingDatabaseEnabled">Opening database enabled</string>
+    <string name="openingDatabaseDisabled">Opening database disabled</string>
+    <string name="computerAnalysis">Computer Analysis</string>
+    <string name="localComputerAnalysis">Local Computer Analysis</string>
+    <string name="analyzingGame">Analyzing game…</string>
+    <string name="writeMessageHint">Message</string>
+    <string name="offlineChooseStrength">Choose computer strength:</string>
+    <string name="actionInfo">Info</string>
+    <string name="gamesPerDay">Games per Day</string>
+    <string name="playersPerDay">Players per Day</string>
+    <string name="solvedPuzzlesPerDay">Solved puzzles per day</string>
+    <string name="puzzleCatalog">Puzzle Catalog</string>
+    <string name="averageRating">Average Rating</string>
+    <string name="floatingAverage">Average</string>
+    <string name="creatingDailyGameRequest">Creating daily game request…</string>
+    <string name="dailyGameStarted">Daily game started!</string>
+    <string name="dailyGameRequestCreated">Daily game request created! Waiting for opponent.</string>
+    <string name="errorCreatingDailyGame">Error creating daily game: %s</string>
+    <string name="tooManyActiveRequests">Request creation failed. You probably have too many active requests.</string>
+    <string name="dailyGameAccepted">Daily game accepted!</string>
+    <string name="errorAcceptingDailyGame">Error accepting daily game: %s</string>
+    <string name="cancelDailyGameRequest">Cancel Daily Game Request</string>
+    <string name="cancelDailyGameRequestMessage">Do you want to cancel your daily game request?</string>
+    <string name="acceptDailyGameRequest">Accept Daily Game Request</string>
+    <string name="acceptDailyGameRequestMessage">Do you want to accept this daily game request?</string>
+    <string name="dailyGameRequestCancelled">Daily game request cancelled</string>
+    <string name="errorCancellingDailyGame">Error cancelling daily game: %s</string>
+    <string name="customGameType">Game Type</string>
+    <string name="gameLive">Live</string>
+    <string name="gameDaily">Daily</string>
+    <string name="gameRunningYourMove">Game is running, your move</string>
+    <string name="playOverBoard">Over the Board</string>
+    
+    <!-- Analysis UI strings -->
+    <string name="analysisTabOverview">Overview</string>
+    <string name="analysisTabChart">Chart</string>
+    <string name="analysisTabMoves">Moves</string>
+    <string name="analysisGameSummary">Game Summary</string>
+    <string name="analysisTotalMoves">Total Moves</string>
+    <string name="analysisDepth">Analysis Depth</string>
+    <string name="analysisTime">Analysis Time</string>
+    <string name="analysisWhitePlayer">♔ White</string>
+    <string name="analysisBlackPlayer">♚ Black</string>
+    <string name="analysisMoveQualityDistribution">Move Quality Distribution</string>
+    <string name="analysisExcellent">⭐ Excellent</string>
+    <string name="analysisGood">✓ Good</string>
+    <string name="analysisInaccuracy">\?! Inaccuracy</string>
+    <string name="analysisMistake">\? Mistake</string>
+    <string name="analysisMiss">\? Miss</string>
+    <string name="analysisBlunder">\?? Blunder</string>
+    <string name="analysisErrors">%d errors</string>
+    <string name="analysisNoComment">No comment</string>
+    <string name="analysisNoAnalysisAvailable">No analysis available</string>
+    <string name="analysisBestMoveFormat">Best: %s</string>
+    
+    <!-- Move judgment comments -->
+    <string name="analysisCommentBestMove">Best move</string>
+    <string name="analysisCommentForcedMove">Forced move</string>
+    <string name="analysisCommentGoodMove">Good move</string>
+    <string name="analysisCommentInaccuracy">Inaccuracy</string>
+    <string name="analysisCommentMistake">Mistake</string>
+    <string name="analysisCommentBlunder">Blunder</string>
+    <string name="analysisCommentMajorBlunder">Major blunder</string>
+    <string name="analysisCommentMissedForcedMate">Missed forced mate</string>
+    <string name="analysisCommentAllowsMate">Allows mate</string>
+    <string name="analysisCommentMajorMaterialLoss">Major material loss</string>
+    <string name="analysisCommentDefendingAgainstMate">Defending against mate</string>
+    <string name="analysisCommentFasterMateAvailable">Faster mate available</string>
+    <string name="analysisCommentDefendingPerfectly">Best defense</string>
+    <string name="analysisCommentBook">As from the book</string>
+    <string name="analysisCommentResign">Resigned</string>
+    <string name="analysisCommentMiss">Miss</string>
+    
+    <!-- Move analysis examples (for layout previews) -->
+    <string name="analysisSampleMoveNumber" translatable="false">1.</string>
+    <string name="analysisSamplePiece" translatable="false">♔</string>
+    <string name="analysisSampleMove" translatable="false">e2-e4</string>
+    <string name="analysisSampleEvaluation" translatable="false">+0.5</string>
+    <string name="analysisSampleJudgment" translatable="false">⭐</string>
+    <string name="analysisSampleLoss" translatable="false">(-50)</string>
+    <string name="analysisSampleComment" translatable="false">Good move</string>
+    <string name="analysisSampleBestMove" translatable="false">Best: e2-e3</string>
+    <string name="analysisPlaceholder" translatable="false">--</string>
+    <string name="analysisPercentagePlaceholder" translatable="false">--.--%</string>
+    <string name="analysisErrorsPlaceholder" translatable="false">-- errors</string>
+    
+    <!-- Server analysis strings -->
+    <string name="serverAnalysis">Server Analysis</string>
+    <string name="analysisQuotaExceeded">Analysis Quota Exceeded</string>
+    <string name="analysisQuotaExceededMessage">You have reached your daily limit of server analysis requests. You can use the offline analysis instead.</string>
+    <string name="analysisQuotaInfo">Daily quota: %d / %d used</string>
+    <string name="analysisOfflineNotice">Note: Offline analysis is less accurate than server analysis.</string>
+    <string name="useOfflineAnalysis">Use Offline Analysis</string>
+    <string name="close">Close</string>
+    <string name="checkingQuota">Checking quota…</string>
+    <string name="requestingAnalysis">Requesting analysis…</string>
+    <string name="analysisRequested">Analysis requested…</string>
+    <string name="analysisQueued">Waiting in queue…</string>
+    <string name="waitingForAnalysis">Waiting for analysis…</string>
+    
+    <!-- Game end dialog strings -->
+    <string name="gameEndWon">You won!</string>
+    <string name="gameEndLost">You lost!</string>
+    <string name="gameEndByFlang">by Flang</string>
+    <string name="gameEndByTimeout">by timeout</string>
+    <string name="gameEndByResign">by resignation</string>
+    <string name="gameEndByUnknown">game ended</string>
+    <string name="requestNewGame">Request new %s</string>
+    <string name="requestNewRatedGame">Request new rated game</string>
+    <string name="requestNewCasualGame">Request new casual game</string>
+    <string name="puzzleOnlyForLoggedUsers">Puzzles are only available for registered users</string>
+    
+    <!-- No puzzles available strings -->
+    <string name="noPuzzlesAvailableTitle">No Puzzles Available</string>
+    <string name="noPuzzlesAvailableMessage">You have completed all puzzles but new ones are created every day. Please try again later!</string>
+    <string name="loadingPuzzles">Loading puzzles…</string>
+    
+    <!-- Confirmation dialog strings -->
+    <string name="confirmResignTitle">Resign Game</string>
+    <string name="confirmResignMessage">Are you sure you want to resign this game?</string>
+    <string name="confirmResign">Resign</string>
+    <string name="confirmSendMoveTitle">Send Move</string>
+    <string name="confirmSendMoveMessage">Are you sure you want to send this move?</string>
+    <string name="confirmSendMove">Send Move</string>
+    <string name="puzzleTitlePlayed">Played %d times</string>
+    <string name="enterPuzzleId">Enter puzzle ID</string>
+    <string name="puzzleIdHint">Enter puzzle ID to view</string>
+    <string name="puzzleNotFound">Puzzle not found</string>
+    <string name="puzzleNotFoundMessage">The puzzle with the specified ID could not be found.</string>
+    <string name="failedToFetchPuzzle">Failed to fetch puzzle: %s</string>
+    <string name="invalidPuzzleId">Invalid puzzle ID</string>
+    <string name="puzzleIdRequired">Puzzle ID is required</string>
+    <string name="error">Error</string>
+
+    <!-- Premove Editor -->
+    <string name="premoveEditor">Premove Editor</string>
+    <string name="premoveEditorTitle">Premove Editor</string>
+    <string name="premoveEditorInstructions">Play moves to add them as premoves. They will be executed automatically when the conditions are met.</string>
+    <string name="noPremovesYet">No premoves added yet.\nPlay moves to create premoves.</string>
+    <string name="deletePremove">Delete premove</string>
+
+    <!-- Premove Conditions -->
+    <string name="premoveConditionSimple">On move %d</string>
+    <string name="premoveConditionWithFmn">On move %d if: %s</string>
+
+    <!-- Premove Confirmation -->
+    <string name="confirmAddPremoveTitle">Add Premove</string>
+    <string name="confirmAddPremoveMessage">Add %s as premove for move %d?</string>
+    <string name="confirmAddPremove">Add Premove</string>
+    <string name="confirmAddPremoveSimple">Add %s as premove for move %d?</string>
+    <string name="confirmAddPremoveWithCondition">Add %s as premove for move %d?\n\nCondition: %s</string>
+
+    <!-- Admin menu options -->
+    <string name="chatBanUser">Chat Ban User</string>
+    <string name="unbanUser">Unban User</string>
+    <string name="chatBanSuccess">User has been chat banned</string>
+    <string name="unbanSuccess">User has been unbanned</string>
+
+    <!-- Rating type strings -->
+    <string name="ratingTypeBullet">Bullet</string>
+    <string name="ratingTypeBlitz">Blitz</string>
+    <string name="ratingTypeClassical">Classical</string>
+    <string name="ratingTypeDaily">Daily</string>
+    <string name="ratingTypePuzzle">Puzzle</string>
+
+    <string name="errorUsernameNotAllowed">The username was not accepted by the server</string>
+    <string name="errorUsernameTaken">The username is already taken</string>
+    <string name="errorCredentialsNotCorrect">Username or password incorrect</string>
+    <string name="errorUsernameTooShort">Username is too short</string>
+    <string name="errorUsernameTooLong">Username is too long</string>
+    <string name="errorUsernameChars">Username contains invalid chars. Allowed: a-z, A-Z, 0-9, ._-</string>
+
+    <string name="sendAsTextOrBoard">Game notation detected</string>
+    <string name="sendAsTextOrBoardMessage">The message looks like a game notation. Do you want to send it as a board or as plain text?</string>
+    <string name="sendAsBoard">As board</string>
+    <string name="sendAsText">As text</string>
+
+</resources>

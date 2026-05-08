@@ -1,0 +1,5 @@
+- Use server analysis
+- Game End dialog
+- Bots use Opening Database
+- Improved bot performance
+- Don't play opening sound every time opening a game

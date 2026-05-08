@@ -1,0 +1,1 @@
+Split the user rating into bullet, blitz, classical and daily

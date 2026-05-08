@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="de.tadris.flang.ui.fragment.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_game"
+            app:destination="@id/nav_game" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_offline_game"
+            app:destination="@id/nav_offline_game" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_tutorial"
+            app:destination="@id/nav_tutorial" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_play_over_board"
+            app:destination="@id/nav_play_over_board" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_game"
+        android:name="de.tadris.flang.ui.fragment.OnlineGameFragment"
+        android:label="@string/menu_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_game_to_nav_profile"
+            app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_computer_analysis"
+            app:destination="@id/nav_computer_analysis" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_game"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_game" />
+        <action
+            android:id="@+id/action_nav_game_to_nav_premove_editor"
+            app:destination="@id/nav_premove_editor" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_offline_game"
+        android:name="de.tadris.flang.ui.fragment.OfflineGameFragment"
+        android:label="@string/offlineBotGame"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_offline_game_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_offline_game_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_next"
+        android:name="de.tadris.flang.ui.fragment.NextGameFragment"
+        android:label="@string/nextBotGame"
+        tools:layout="@layout/fragment_game" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_play_over_board"
+        android:name="de.tadris.flang.ui.fragment.PlayOverBoardFragment"
+        android:label="@string/playOverBoard"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_play_over_board_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_play_over_board_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="de.tadris.flang.ui.fragment.ProfileFragment"
+        android:label="@string/playerProfile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_nav_profile_to_nav_game"
+            app:destination="@id/nav_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tv"
+        android:name="de.tadris.flang.ui.fragment.TvFragment"
+        android:label="@string/flangTv"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_tv_to_nav_profile"
+            app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_tv_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_tv_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_analysis"
+        android:name="de.tadris.flang.ui.fragment.AnalysisGameFragment"
+        android:label="@string/analysisTitle"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_analysis_to_nav_computer_analysis"
+            app:destination="@id/nav_computer_analysis" />
+        <action
+            android:id="@+id/action_nav_analysis_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+        <action
+            android:id="@+id/action_nav_analysis_to_nav_game"
+            app:destination="@id/nav_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_computer_analysis"
+        android:name="de.tadris.flang.ui.fragment.ComputerAnalysisGameFragment"
+        android:label="@string/computerAnalysis"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_computer_analysis_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_computer_analysis_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_premove_editor"
+        android:name="de.tadris.flang.ui.fragment.PremoveEditorFragment"
+        android:label="@string/premoveEditor"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_premove_editor_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_premove_editor_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tutorial"
+        android:name="de.tadris.flang.ui.fragment.TutorialGameFragment"
+        android:label="@string/tutorialTitle"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_tutorial_self"
+            app:popUpTo="@id/nav_home"
+            app:destination="@id/nav_tutorial" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_puzzles"
+        android:name="de.tadris.flang.ui.fragment.PuzzleFragment"
+        android:label="@string/puzzles"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_nav_puzzles_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_puzzles_to_nav_chat"
+            app:launchSingleTop="true"
+            app:destination="@id/nav_chat" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_top"
+        android:name="de.tadris.flang.ui.fragment.TopPlayersFragment"
+        android:label="@string/topPlayers"
+        tools:layout="@layout/fragment_top_players" >
+        <action
+            android:id="@+id/action_nav_top_to_nav_profile"
+            app:destination="@id/nav_profile" />
+        <action
+            android:id="@+id/action_nav_top_to_nav_user_search"
+            app:destination="@id/nav_user_search" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_user_search"
+        android:name="de.tadris.flang.ui.fragment.UserSearchFragment"
+        android:label="@string/searchUsers"
+        tools:layout="@layout/fragment_user_search" >
+        <action
+            android:id="@+id/action_nav_user_search_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_chat"
+        android:name="de.tadris.flang.ui.fragment.ChatFragment"
+        android:label="@string/globalChat"
+        tools:layout="@layout/fragment_chat">
+
+        <action
+            android:id="@+id/action_nav_chat_to_nav_game"
+            app:destination="@id/nav_game" />
+        <action
+            android:id="@+id/action_nav_chat_to_nav_analysis"
+            app:destination="@id/nav_analysis" />
+        <action
+            android:id="@+id/action_nav_chat_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="de.tadris.flang.ui.fragment.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

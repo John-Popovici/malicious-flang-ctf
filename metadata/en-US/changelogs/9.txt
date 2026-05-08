@@ -1,0 +1,3 @@
+- Improved bot strength
+- Use Material 3 Styling
+- New Bot types: StageBot, HeatmapBot

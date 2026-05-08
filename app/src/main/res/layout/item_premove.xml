@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:background="?selectableItemBackground"
+    android:gravity="center_vertical">
+
+    <!-- Move info -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/moveText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="e2-e4"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/moveCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="On move 10"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:textColorSecondary" />
+
+    </LinearLayout>
+
+    <!-- Delete button -->
+    <ImageView
+        android:id="@+id/deleteButton"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_delete"
+        android:background="?selectableItemBackgroundBorderless"
+        android:padding="4dp"
+        app:tint="?android:textColorSecondary"
+        android:contentDescription="@string/deletePremove" />
+
+</LinearLayout>

@@ -1,0 +1,7 @@
+First release :)
+
+- Play Flang offline and online
+- Flang TV
+- Profile
+- Analysis board
+- Tutorial

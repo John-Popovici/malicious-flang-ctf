@@ -1,0 +1,33 @@
+# Base
+:
+
+# G2 Openings
+Standard opening                    : g2g3
+Standard opening                    : g2g3 b7b6
+Standard opening, Uni attack        : g2g3 uc6
+Cordobesa opening                   : g2h3
+Cordobesa opening, horse's defence  : g2h3 he6
+Cordobesa opening, auri's variant   : g2f3
+
+# King's pawn
+German opening                      : h2g3
+German, quick run variant           : h2g3 g7 Kh2
+German, quick run variant           : h2g3 g7 Kh2 h8
+
+# Covard
+Covard opening                      : b2
+Covard opening, Uni attack          : b2 b7a6
+Double pawn defence                 : b2 b7a6 b3
+Covard opening, Uni attack          : b2 b7c6
+Double pawn defence                 : b2 b7c6 b3
+Double covard opening               : b2 g7
+Double pawn defence                 : b2 g7 b3
+
+# Others
+Rook attack                         : d2c3
+Double rook attack                  : d2c3 e7f6
+Rook attack variant                 : d2e3
+Racing horse                        : Hf3
+Rook attack, double pawn defence    : d2c3 g7 g2h3 g6
+Uni Push                            : Uf3
+Double Uni Push                     : Uf3 uc6

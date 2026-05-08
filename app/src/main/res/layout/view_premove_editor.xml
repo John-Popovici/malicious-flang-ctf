@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/premoveEditorTitle"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:padding="12dp"
+        android:background="?android:attr/colorBackground" />
+
+    <!-- Instructions -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/premoveEditorInstructions"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:padding="8dp"
+        android:textColor="?android:textColorSecondary" />
+
+    <!-- Premoves List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/premovesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="8dp"
+        android:clipToPadding="false" />
+
+    <!-- Empty state -->
+    <TextView
+        android:id="@+id/emptyStateText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/noPremovesYet"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="?android:textColorSecondary"
+        android:visibility="gone" />
+
+</LinearLayout>

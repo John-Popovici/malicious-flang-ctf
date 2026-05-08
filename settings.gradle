@@ -1,0 +1,4 @@
+include ':network-api'
+include ':flang-lib'
+include ':app'
+rootProject.name = "Flang"

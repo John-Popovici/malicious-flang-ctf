@@ -1,0 +1,8 @@
+Improvements:
+- use new Flang implementation in the app which is a lot faster
+- use different colors in the profile rating chart
+- show useful error messages when failing to login/register
+
+Bot:
+- Quiescence search
+- Various search optimizations

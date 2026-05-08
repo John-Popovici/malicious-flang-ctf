@@ -1,0 +1,1 @@
+Added Puzzles: Test your skills in the new puzzle mode. There were also a lot of under the hood improvements and bug fixes
