@@ -378,8 +378,8 @@
     <string name="sendAsText">As text</string>
 
     <!-- CTF strings -->
-    <string name="fName">FLAG</string>
-    <string name="fStart">{</string>
-    <string name="fEnd">}</string>
+    <string name="fName" translatable="false">FLAG</string>
+    <string name="fStart" translatable="false">{</string>
+    <string name="fEnd" translatable="false">}</string>
 
 </resources>
