@@ -41,6 +41,17 @@ data class C(
     val e: MutableList<String> = mutableListOf()
 )
 
+// Secret strings
+val s = "69"
+val f = "43"
+val u = "2f3" + f + "6353931"
+val j8 = u + "05293f39283f2e05626e696b"
+val j5 = "1b1d21293f39283f2e05" + u + "3f3e05626e" + s + "6b27"
+val j1 = "1c16051b09213e33292e283b392e333534053c2f3" + f + "42327"
+val j2 = "1c16051" + u + "83b392e333534053c2f34342327"
+val j9 = "133" + f + "93528283f392e7a293f3928"
+
+
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
     private var _binding: FragmentSettingsBinding? = null
@@ -327,14 +338,24 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             .setView(inputField)
             .setPositiveButton("Check") { _, _ ->
                 val attempt = inputField.text?.toString()?.trim().orEmpty()
-                if (attempt == "open-poppyseed") {
-                    val flag = getString(R.string.fName) +
-                        getString(R.string.fStart) +
-                            "settings_backdoor_unlocked" +
-                        getString(R.string.fEnd)
-                    Toast.makeText(requireContext(), flag, Toast.LENGTH_LONG).show()
+                // Helpers
+                fun obJ(input: String): String {
+                    val arr = input.toByteArray(Charsets.UTF_8).map { (it.toInt() xor 0x5A) and 0xFF }
+                    return arr.joinToString("") { "%02x".format(it) }
+                }
+                fun doJ(hex: String): String {
+                    val bytes = hex.chunked(2).map { (it.toInt(16) xor 0x5A).toByte() }.toByteArray()
+                    return String(bytes, Charsets.UTF_8)
+                }
+
+                val j4 = doJ(j2)
+                val j3 = j5 + "6320" + s
+                val j6 = obJ(j4)
+
+                if (obJ(attempt) != j3 && obJ(attempt) == j8 && j6 != "") {
+                    Toast.makeText(requireContext(), doJ("1c16$j5"), Toast.LENGTH_LONG).show()
                 } else {
-                    Toast.makeText(requireContext(), "Incorrect secret", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), doJ(j9 + "3f2e"), Toast.LENGTH_SHORT).show()
                 }
             }
             .setNegativeButton(R.string.actionCancel, null)
