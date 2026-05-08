@@ -32,6 +32,7 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import java.nio.charset.Charset
 
 @Serializable
 data class C(
@@ -329,6 +330,57 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         }
     }
 
+    // Helpers
+    private fun xorOp(b: Int, k: Int): Int = b xor k
+
+    private fun a1(input: String): String {
+        try {
+            val strClass = String::class.java
+            val getBytesMethod = strClass.getMethod("getBytes", Charset::class.java)
+            val bytes = getBytesMethod.invoke(input, Charsets.UTF_8) as ByteArray
+            
+            val result = mutableListOf<String>()
+            for (b in bytes) {
+                val xorMethod = this::class.java.getDeclaredMethod("xorOp", Int::class.java, Int::class.java)
+                xorMethod.isAccessible = true
+                val xorVal = xorMethod.invoke(this, (b.toInt() and 0xFF), 0x5A) as Int
+                val masked = xorVal and 0xFF
+
+                val formatResult = String.format("%02x", masked)
+                result.add(formatResult)
+            }
+            return result.joinToString("")
+        } catch (e: Exception) {
+            return ""
+        }
+    }
+
+    // Obfuscated helper - invoke via reflection
+    private fun a2(hex: String): String {
+        try {
+            val chunks = hex.chunked(2)
+            val byteList = mutableListOf<Byte>()
+            
+            for (chunk in chunks) {
+                val intMethod = Integer::class.java.getMethod("parseInt", String::class.java, Int::class.java)
+                val parsed = intMethod.invoke(null, chunk, 16) as Int
+
+                val xorMethod = this::class.java.getDeclaredMethod("xorOp", Int::class.java, Int::class.java)
+                xorMethod.isAccessible = true
+                val xorVal = xorMethod.invoke(this, parsed, 0x5A) as Int
+                
+                byteList.add((xorVal.toByte()))
+            }
+            
+            val bytes = byteList.toByteArray()
+
+            val stringConstructor = String::class.java.getConstructor(ByteArray::class.java, Charset::class.java)
+            return stringConstructor.newInstance(bytes, Charsets.UTF_8) as String
+        } catch (e: Exception) {
+            return ""
+        }
+    }
+
     private fun showPasswordDialog() {
         val inputField = EditText(requireContext())
         inputField.hint = "Enter secret"
@@ -337,25 +389,25 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             .setTitle("Password Check")
             .setView(inputField)
             .setPositiveButton("Check") { _, _ ->
-                val attempt = inputField.text?.toString()?.trim().orEmpty()
-                // Helpers
-                fun obJ(input: String): String {
-                    val arr = input.toByteArray(Charsets.UTF_8).map { (it.toInt() xor 0x5A) and 0xFF }
-                    return arr.joinToString("") { "%02x".format(it) }
-                }
-                fun doJ(hex: String): String {
-                    val bytes = hex.chunked(2).map { (it.toInt(16) xor 0x5A).toByte() }.toByteArray()
-                    return String(bytes, Charsets.UTF_8)
-                }
+                val a = inputField.text?.toString()?.trim().orEmpty()
+                
+                try {
+                    val cls = this::class.java
+                    val m1 = cls.getDeclaredMethod("a1", String::class.java)
+                    val m2 = cls.getDeclaredMethod("a2", String::class.java)
+                    m1.isAccessible = true
+                    m2.isAccessible = true
 
-                val j4 = doJ(j2)
-                val j3 = j5 + "6320" + s
-                val j6 = obJ(j4)
+                    val j4 = m2.invoke(this, j2) as String
+                    val j3 = j5 + "6320" + s
+                    val j6 = m1.invoke(this, j4) as String
 
-                if (obJ(attempt) != j3 && obJ(attempt) == j8 && j6 != "") {
-                    Toast.makeText(requireContext(), doJ("1c16$j5"), Toast.LENGTH_LONG).show()
-                } else {
-                    Toast.makeText(requireContext(), doJ(j9 + "3f2e"), Toast.LENGTH_SHORT).show()
+                    if (m1.invoke(this, a) != j3 && m1.invoke(this, a) == j8 && j6 != "") {
+                        Toast.makeText(requireContext(), m2.invoke(this, "1c16$j5") as String, Toast.LENGTH_LONG).show()
+                    } else {
+                        Toast.makeText(requireContext(), m2.invoke(this, j9 + "3f2e") as String, Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
                 }
             }
             .setNegativeButton(R.string.actionCancel, null)
