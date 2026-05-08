@@ -76,37 +76,37 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             moveConfirmationSwitch.isChecked = !moveConfirmationSwitch.isChecked
         }
 
-        binding.sourceCodeOption.setOnClickListener {
-            openUrl(getString(R.string.sourceCodeUrl))
-        }
-
-        binding.privacyPolicyOption.setOnClickListener {
-            openUrl(getString(R.string.privacyPolicyUrl))
-        }
-
-        binding.changelogOption.setOnClickListener {
-            openUrl(getString(R.string.changelogUrl))
-        }
-
-        binding.openSourceLibrariesOption.setOnClickListener {
-            openUrl(getString(R.string.openSourceLibrariesUrl))
-        }
-
-        binding.reportBugOption.setOnClickListener {
-            openUrl(getString(R.string.reportBugUrl))
-        }
-
-        binding.sendFeedbackOption.setOnClickListener {
-            sendFeedbackEmail()
-        }
-
-        binding.telegramChatOption.setOnClickListener {
-            openUrl(getString(R.string.telegramChatUrl))
-        }
-
-        binding.matrixChatOption.setOnClickListener {
-            openUrl(getString(R.string.matrixChatUrl))
-        }
+//        binding.sourceCodeOption.setOnClickListener {
+//            openUrl(getString(R.string.sourceCodeUrl))
+//        }
+//
+//        binding.privacyPolicyOption.setOnClickListener {
+//            openUrl(getString(R.string.privacyPolicyUrl))
+//        }
+//
+//        binding.changelogOption.setOnClickListener {
+//            openUrl(getString(R.string.changelogUrl))
+//        }
+//
+//        binding.openSourceLibrariesOption.setOnClickListener {
+//            openUrl(getString(R.string.openSourceLibrariesUrl))
+//        }
+//
+//        binding.reportBugOption.setOnClickListener {
+//            openUrl(getString(R.string.reportBugUrl))
+//        }
+//
+//        binding.sendFeedbackOption.setOnClickListener {
+//            sendFeedbackEmail()
+//        }
+//
+//        binding.telegramChatOption.setOnClickListener {
+//            openUrl(getString(R.string.telegramChatUrl))
+//        }
+//
+//        binding.matrixChatOption.setOnClickListener {
+//            openUrl(getString(R.string.matrixChatUrl))
+//        }
     }
 
     private fun showChangePasswordDialog() {
