@@ -1,3 +1,10 @@
+
+> [!Caution]
+> This is a copy of Jannis's FlangAndroid application at commit `40a71fa489`. The original source code is available at: https://codeberg.org/jannis/FlangAndroid
+> 
+> This project intentionally contains both malicious code and flags in the format "FLAG{flag_here}".
+
+---
 # Flang Android
 
 [Flang](https://codeberg.org/jannis/Flang) is a board game similar to chess or shogi but differs in some special [rules](https://codeberg.org/jannis/Flang/wiki/Rules).
