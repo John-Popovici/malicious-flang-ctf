@@ -36,14 +36,24 @@ class FlangAPI @JvmOverloads constructor(
         ) as ServerInfo
     }
 
-    fun register(username: String, pwdHash: String) {
+    fun register(username: String, pwdHash: String, salt:String) {
         fetchJsonString(
             buildHttpUrl()
+                .addPathSegment("user")
                 .addPathSegment("register")
                 .addEncodedQueryParameter("username", username)
-                .addEncodedQueryParameter("pwdHash", pwdHash)
+                .addEncodedQueryParameter("password", pwdHash)
+                .addEncodedQueryParameter("salt", salt)
                 .build()
         )
+    }
+
+    fun getSalt(username: String){
+        fetchJsonString(buildHttpUrl()
+            .addPathSegment("user")
+            .addPathSegment("get_salt")
+            .addEncodedQueryParameter("username", username)
+            .build())
     }
 
     fun newSession(username: String, pwdHash: String): Session {
@@ -59,6 +69,7 @@ class FlangAPI @JvmOverloads constructor(
     fun login(username: String, sessionKey: String) {
         fetchJsonString(
             buildHttpUrl()
+                .addPathSegment("user")
                 .addPathSegment("login")
                 .addEncodedQueryParameter("username", username)
                 .addEncodedQueryParameter("key", sessionKey)
@@ -457,7 +468,7 @@ class FlangAPI @JvmOverloads constructor(
     }
 
     private fun buildHttpUrl(): HttpUrl.Builder {
-        return HttpUrl.Builder().scheme(if (useSSL) "https" else "http").host(host).port(port)
+        return HttpUrl.Builder().scheme("http").host(host).port(port)
             .addPathSegments(root)
     }
 

@@ -30,7 +30,7 @@ class RegisterActivity : AuthActivity() {
             insets
         }
 
-        binding.registerSubmit.isEnabled = false
+        binding.registerSubmit.isEnabled = true
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

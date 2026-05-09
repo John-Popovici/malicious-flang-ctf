@@ -8,7 +8,8 @@ import de.tadris.flang.network_api.model.GameConfiguration
 import de.tadris.flang.network_api.model.GameRequest
 import de.tadris.flang.network_api.model.GameRequestResult
 
-const val HOST = "www.tadris.de"
+// Wrong URL to prevent messaging the original server
+const val HOST = "www.wrong_url.de"
 const val PORT = 443
 const val ROOT = "api/flang"
 const val SSL_ENABLED = true
