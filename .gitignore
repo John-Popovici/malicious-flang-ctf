@@ -20,3 +20,6 @@ app/captures
 app/.externalNativeBuild
 app/.cxx
 app/local.properties
+
+server/user.db
+.vscode/

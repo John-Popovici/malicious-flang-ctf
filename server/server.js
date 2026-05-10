@@ -24,9 +24,10 @@ db.serialize(() => {
   `);
 
   // Insert a test user
+  // password is password
   db.run(`
     INSERT INTO users (username, password, salt)
-    VALUES ('admin', 'TzZGLbtLNduGQSFOB8taWIGYatGENQvxJgFDHumqXBE=', 'salt123')
+    VALUES ('admin', 'de4c58a4d8593482f30c68286327d39c4bf1feb7883cc3a3688e91c018e8c01a', '7/l5SRzaB0nQEiQGc8LEJw==')
   `);
 });
 

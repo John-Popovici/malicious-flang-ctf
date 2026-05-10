@@ -34,14 +34,14 @@ abstract class AuthActivity : AppCompatActivity() {
             if(register){
                 val salt = generateSalt()
                 val passwordHash = hashPassword(password, salt)
-                processRegister(username, passwordHash, salt)
+                val message = processRegister(username, passwordHash, salt)
+                Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             }
-
-            val salt = apiGetSalt(username)
+            val salt = processGetSalt(username)
             val passwordHash = hashPassword(password, salt)
-            // val session = processLogin(username, passwordHash)
+            val message = processLogin(username, passwordHash)
             // CredentialsStorage(this).saveSession(username, session)
-            Toast.makeText(this, R.string.loggedIn, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
             dialog.hide()
             finish()
         }catch (e: Exception){
@@ -51,22 +51,29 @@ abstract class AuthActivity : AppCompatActivity() {
     }
 
     @WorkerThread
-    private suspend fun processRegister(username: String, passwordHash: String, salt: String) = withContext(Dispatchers.IO) {
+    private suspend fun processRegister(username: String, passwordHash: String, salt: String): String = withContext(Dispatchers.IO) {
         try {
             apiRegister(username, passwordHash, salt)
-        }catch (_: ForbiddenException){
-            throw Exception(getString(R.string.errorUsernameTaken))
-        }catch (_: BadRequestException){
-            throw Exception(getString(R.string.errorUsernameNotAllowed))
+        } catch (_: ForbiddenException){
+            throw Exception(getString(R.string.errorCredentialsNotCorrect))
         }
     }
 
     @WorkerThread
-    private suspend fun processLogin(username: String, passwordHash: String) = withContext(Dispatchers.IO) {
+    private suspend fun processLogin(username: String, passwordHash: String): String = withContext(Dispatchers.IO) {
         try {
             apiLogin(username, passwordHash)
         }catch (_: ForbiddenException){
             throw Exception(getString(R.string.errorCredentialsNotCorrect))
+        }
+    }
+
+    @WorkerThread
+    private suspend fun processGetSalt(username: String): String = withContext(Dispatchers.IO) {
+        try {
+            apiGetSalt(username)
+        }catch (_: ForbiddenException){
+            throw Exception("Salt not retrieved")
         }
     }
 

@@ -10,7 +10,7 @@ router.post("/login", (req, res) => {
     try {
         const db = req.db;
         const { username, password} = req.body;
-        console.log("Received a login request. Payload: \n {"+username+", "+password+"}\n");
+        //console.log("Received a login request. Payload: \n {"+username+", "+password+"}\n");
 
         const query = `
         SELECT * FROM users 
@@ -49,7 +49,7 @@ router.post("/register", (req, res) => {
         const db = req.db;
         const { username, password, salt} = req.body;
 
-        console.log("Received a register request. Payload: \n {"+username+", "+password+", "+salt+"}\n");
+        //console.log("Received a register request. Payload: \n {"+username+", "+password+", "+salt+"}\n");
 
         // Check first if username already exists
         const query_check = `
@@ -92,8 +92,8 @@ router.post("/register", (req, res) => {
 router.get("/get_salt", (req, res) => {
     try {
         const db = req.db;
-        const {username} = req.body;
-        console.log("Received a get_salt request. Payload: \n" + salt + "\n");
+        const {username} = req.query;
+        //console.log("Received a get_salt request. Payload: \n" + username + "\n");
 
         const query = `
         SELECT * FROM users 

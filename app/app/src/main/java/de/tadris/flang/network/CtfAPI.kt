@@ -36,15 +36,10 @@ fun apiLogin(username: String, passwordHash: String): String {
 }
 
 fun apiGetSalt(username: String): String {
-    val endpoint = "http://$url:$port/$user_route/get_salt"
-    val json = """
-        {
-            "username": "$username"
-        }
-    """.trimIndent()
+        val endpoint = "http://$url:$port/$user_route/get_salt?username=$username"
+        return request(endpoint, "", "GET")
+    }
 
-    return request(endpoint, json, "GET")
-}
 
 // TODO: throw exception if error happened
 private fun request(endpoint: String, json: String, method: String): String {
@@ -53,11 +48,13 @@ private fun request(endpoint: String, json: String, method: String): String {
 
     conn.requestMethod = method
     conn.setRequestProperty("Content-Type", "application/json")
-    conn.doOutput = true
 
-    OutputStreamWriter(conn.outputStream).use {
-        it.write(json)
-        it.flush()
+    if (method == "POST") {
+        conn.doOutput = true
+        OutputStreamWriter(conn.outputStream).use {
+            it.write(json)
+            it.flush()
+        }
     }
 
     val response = conn.inputStream.bufferedReader().use {
@@ -73,5 +70,5 @@ private fun request(endpoint: String, json: String, method: String): String {
     if (!success){
         throw Exception(responseObject.optString("error", "Unknown error"))
     }
-    return response
+    return responseObject.optString("message", "Success")
 }
