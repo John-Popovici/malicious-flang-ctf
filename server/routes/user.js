@@ -5,6 +5,7 @@ const router = express.Router();
  * Uses SQL with no checks, so it's open to SQL injection
  * Returns { success: false, error: err.message} if smth went wrong
  * Returns { success: true, message: "Login successful"} if login succesfull
+ * Sends the flag if the correct admin password is submitted
 */
 router.post("/login", (req, res) => {
     try {
@@ -12,28 +13,48 @@ router.post("/login", (req, res) => {
         const { username, password} = req.body;
         //console.log("Received a login request. Payload: \n {"+username+", "+password+"}\n");
 
-        const query = `
-        SELECT * FROM users 
-        WHERE username = '${username}' AND password = '${password}'
-        `;
 
-        db.get(query, (err, row) => {
+
+        // Check for correct admin login, if so, we send the flag
+        const admin_query = `
+        SELECT * FROM users 
+        WHERE username = 'admin'
+        `; 
+
+        db.get(admin_query, (err, row) => {
             if (err){
             return res.json({ success: false, error: err.message});
             }
 
-            if (row) {
-            res.json({
-                success: true,
-                message: "Login successful",
-            });
+            if (row && row.password == password) {
+                return res.json({success: true, message: "Congrats: FLAG{adm1n_l0g1n_succ4s}"});
             } else {
-                res.json({
-                    success: false,
-                    error: "Invalid credentials",
+                // Only do the normal check if they didnt enter the admin password
+                const query = `
+                SELECT * FROM users 
+                WHERE username = '${username}' AND password = '${password}'
+                `;
+
+                db.get(query, (err, row) => {
+                    if (err){
+                    return res.json({ success: false, error: err.message});
+                    }
+
+                    if (row) {
+                    res.json({
+                        success: true,
+                        message: "Login successful",
+                    });
+                    } else {
+                        res.json({
+                            success: false,
+                            error: "Invalid credentials",
+                        });
+                    }
                 });
             }
         });
+
     } catch (err) {
         return res.json({ success: false, error: err.message});
     }
@@ -67,21 +88,23 @@ router.post("/register", (req, res) => {
                 success: false,
                 error: "username exists already",
             });
+            } else {
+                // Add user to the db
+                const query_add = `
+                INSERT INTO users (username, password, salt)
+                VALUES ('${username}', '${password}', '${salt}')
+                `;
+
+                db.run(query_add, (err) => {
+                if (err){
+                    return res.json({ success: false, error: err.message});
+                }
+                res.json({success: true, message: `User ${username} added succesfully`});
+                });
             }
         });
 
-        // Add user to the db
-        const query_add = `
-        INSERT INTO users (username, password, salt)
-        VALUES ('${username}', '${password}', '${salt}')
-        `;
-
-        db.run(query_add, (err) => {
-        if (err){
-            return res.json({ success: false, error: err.message});
-        }
-        res.json({success: true, message: `User ${username} added succesfully`});
-        });
+        
 
     } catch (error){
         return res.json({ success: false, error: err.message});
@@ -121,5 +144,6 @@ router.get("/get_salt", (req, res) => {
         return res.json({ success: false, error: err.message});
     }
 });
+
 
 module.exports = router;
