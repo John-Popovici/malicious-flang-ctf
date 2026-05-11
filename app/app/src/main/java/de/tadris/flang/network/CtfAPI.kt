@@ -9,6 +9,7 @@ import java.net.URL
 const val url = "10.0.2.2"
 const val port = 3000
 const val user_route = "user"
+const val update_route = "updates"
 
 fun apiRegister(username: String, passwordHash: String, salt: String): String {
     val endpoint = "http://$url:$port/$user_route/register"
@@ -38,7 +39,22 @@ fun apiLogin(username: String, passwordHash: String): String {
 fun apiGetSalt(username: String): String {
         val endpoint = "http://$url:$port/$user_route/get_salt?username=$username"
         return request(endpoint, "", "GET")
-    }
+}
+
+fun apiGetUpdate(): String {
+    val endpoint =  "http://$url:$port/$update_route/get_update"
+    return request(endpoint, "", "GET")
+}
+
+fun apiConfirmUpdate(confirmMessage: String): String {
+    val endpoint =  "http://$url:$port/$update_route/confirm_update"
+    val json = """
+        {
+            "confirmed": "$confirmMessage"
+        }
+    """.trimIndent()
+    return request(endpoint, json, "POST")
+}
 
 
 // TODO: throw exception if error happened

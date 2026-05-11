@@ -21,5 +21,6 @@ app/.externalNativeBuild
 app/.cxx
 app/local.properties
 
-server/user.db
+server/users.db
+server/node_modules*
 .vscode/
