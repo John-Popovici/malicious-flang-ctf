@@ -135,8 +135,8 @@ class TopPlayersFragment : Fragment(R.layout.fragment_top_players), UserAdapter.
         viewLifecycleOwner.lifecycleScope.launch {
             try{
                 topPlayersAdapter.updateList(findTopPlayers())
-                onlinePlayersAdapter.updateList(findOnlinePlayers())
-                updateCharts(fetchStats())
+//                onlinePlayersAdapter.updateList(findOnlinePlayers())
+//                updateCharts(fetchStats())
             }catch (e: Exception){
                 e.printStackTrace()
                 Toast.makeText(requireContext(), e.message, Toast.LENGTH_LONG).show()
@@ -165,7 +165,7 @@ class TopPlayersFragment : Fragment(R.layout.fragment_top_players), UserAdapter.
 
     @WorkerThread
     private suspend fun findTopPlayers() = withContext(Dispatchers.IO) {
-        DataRepository.getInstance().accessOpenAPI().getTopPlayers(selectedRatingType.value)
+        DataRepository.getInstance().accessOpenAPI("www.tadris.de").getTopPlayers(selectedRatingType.value)
     }
 
     @WorkerThread
@@ -179,7 +179,7 @@ class TopPlayersFragment : Fragment(R.layout.fragment_top_players), UserAdapter.
     }
 
     override fun onClick(user: UserInfo) {
-        showProfile(user.username)
+//        showProfile(user.username)
     }
 
     private fun showProfile(username: String){

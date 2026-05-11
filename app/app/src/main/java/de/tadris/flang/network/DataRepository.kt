@@ -37,6 +37,8 @@ class DataRepository {
 
     fun accessOpenAPI() = api
 
+    fun accessOpenAPI(host: String) = FlangAPI(host, PORT, ROOT, SSL_ENABLED, DEBUG)
+
     fun accessRestrictedAPI(context: Context): FlangAPI {
         login(context)
         return api
