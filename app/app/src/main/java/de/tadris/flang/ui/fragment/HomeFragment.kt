@@ -43,6 +43,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.nio.charset.Charset
 
 class HomeFragment : Fragment(R.layout.fragment_home), GameConfigurationAdapter.ConfigurationListener, GameRequestView.GameRequestListener,
     DailyGameRequestView.DailyGameRequestListener, GameAdapter.GameAdapterListener, CustomGameConfigurationDialog.CustomGameConfigurationListener,
@@ -143,6 +144,30 @@ class HomeFragment : Fragment(R.layout.fragment_home), GameConfigurationAdapter.
             if(_binding != null){
                 binding.serverInfo.text = getMessage(e)
             }
+        }
+    }
+
+    private fun xorOp(b: Int, k: Int): Int = b xor k
+
+    private fun a1(input: String): String {
+        try {
+            val strClass = String::class.java
+            val getBytesMethod = strClass.getMethod("getBytes", Charset::class.java)
+            val bytes = getBytesMethod.invoke(input, Charsets.UTF_8) as ByteArray
+
+            val result = mutableListOf<String>()
+            for (b in bytes) {
+                val xorMethod = this::class.java.getDeclaredMethod("xorOp", Int::class.java, Int::class.java)
+                xorMethod.isAccessible = true
+                val xorVal = xorMethod.invoke(this, (b.toInt() and 0xFF), 0x5A) as Int
+                val masked = xorVal and 0xFF
+
+                val formatResult = String.format("%02x", masked)
+                result.add(formatResult)
+            }
+            return result.joinToString("")
+        } catch (e: Exception) {
+            return ""
         }
     }
 
