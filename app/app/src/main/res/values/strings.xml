@@ -31,7 +31,7 @@
     <string name="openSourceLibraries">Open source libraries</string>
     <string name="reportBug">Report a bug</string>
     <string name="sendFeedback">Send feedback to developer</string>
-    <string name="telegramChat">Community chat (Telegram)</string>
+    <string name="telegramChat">Share chat (Telegram)</string>
     <string name="matrixChat">Community chat (Matrix)</string>
     <string name="changePasswordTitle">Change Password</string>
     <string name="currentPassword">Current password</string>

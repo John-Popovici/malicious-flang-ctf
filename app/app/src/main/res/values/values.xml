@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="privacyPolicyUrl" translatable="false">https://codeberg.org/jannis/Flang/src/branch/master/PRIVACY.md</string>
+    <string name="privacyPolicyUrl" translatable="false">no-access</string>
     <string name="sourceCodeUrl" translatable="false">https://codeberg.org/jannis/FlangAndroid</string>
-    <string name="changelogUrl" translatable="false">https://codeberg.org/jannis/FlangAndroid/releases</string>
-    <string name="openSourceLibrariesUrl" translatable="false">https://codeberg.org/jannis/FlangAndroid/src/branch/master/NOTICE.md</string>
-    <string name="reportBugUrl" translatable="false">https://codeberg.org/jannis/FlangAndroid/issues</string>
-    <string name="developerEmail" translatable="false">jannis@tadris.de</string>
-    <string name="telegramChatUrl" translatable="false">https://t.me/flanggame</string>
-    <string name="matrixChatUrl" translatable="false">https://matrix.to/#/%23flang:matrix.org</string>
+    <string name="changelogUrl" translatable="false">no-access</string>
+    <string name="openSourceLibrariesUrl" translatable="false">no-access</string>
+    <string name="reportBugUrl" translatable="false">no-access</string>
+    <string name="developerEmail" translatable="false">no-access</string>
+    <string name="telegramChatUrl" translatable="false">no-access</string>
+    <string name="matrixChatUrl" translatable="false">no-access</string>
 </resources>
