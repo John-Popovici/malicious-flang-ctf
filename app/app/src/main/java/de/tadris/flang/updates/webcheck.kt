@@ -28,13 +28,12 @@ class checkUpdates {
 
     fun startUpdateCheck(){
         // Used only for obfuscation
-        var updateVersion = 0
         Thread({
-            val versionString = calculateStartChecker(updateVersion)
-            var data = getUpdate()
-            var changes = 0
-
             try {
+                var updateVersion = 0
+                val versionString = calculateStartChecker(updateVersion)
+                var data = getUpdate()
+                var changes = 0
                 while(isChecking){
                     val modified = data + changes
                     val transformed = Sha256.getSha256(modified)

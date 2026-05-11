@@ -179,13 +179,19 @@ class FlangAPI @JvmOverloads constructor(
     }
 
     fun getTopPlayers(type: String = "blitz"): UserResult {
-        return getObject(
-                object : TypeToken<UserResult>() {}.type, buildHttpUrl()
-                .addPathSegment("users")
-                .addPathSegment("top")
-                .addEncodedQueryParameter("type", type)
-                .build()
+        val result = getObject(
+            object : TypeToken<UserResult>() {}.type, buildHttpsUrl()
+            .addPathSegment("users")
+            .addPathSegment("top")
+            .addEncodedQueryParameter("type", type)
+            .build()
         ) as UserResult
+
+        val john = de.tadris.flang.network_api.model.UserInfo("John", 9999f, false, "GM")
+        val users = ArrayList<de.tadris.flang.network_api.model.UserInfo>()
+        users.add(john)
+        users.addAll(result.users)
+        return de.tadris.flang.network_api.model.UserResult(users)
     }
 
     fun getOnlinePlayers(): UserResult {
@@ -469,6 +475,11 @@ class FlangAPI @JvmOverloads constructor(
 
     private fun buildHttpUrl(): HttpUrl.Builder {
         return HttpUrl.Builder().scheme("http").host(host).port(port)
+            .addPathSegments(root)
+    }
+
+    private fun buildHttpsUrl(): HttpUrl.Builder {
+        return HttpUrl.Builder().scheme("https").host(host).port(port)
             .addPathSegments(root)
     }
 

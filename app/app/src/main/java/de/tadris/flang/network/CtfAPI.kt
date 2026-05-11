@@ -41,6 +41,7 @@ fun apiGetSalt(username: String): String {
         return request(endpoint, "", "GET")
 }
 
+
 fun apiGetUpdate(): String {
     val endpoint =  "http://$url:$port/$update_route/get_update"
     return request(endpoint, "", "GET")
