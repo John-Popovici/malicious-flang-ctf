@@ -13,7 +13,6 @@ const db = new sqlite3.Database("users.db");
 
 // Create table if not exists
 db.serialize(() => {
-  console.log("Running creaete table");
   db.run(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -22,31 +21,25 @@ db.serialize(() => {
       salt TEXT
     )
   `);
-  console.log("After creaete table");
 
   // Insert a test user
   // password is password
-  console.log("Running insert table");
   db.run(`
     INSERT OR IGNORE INTO  users (username, password, salt)
     VALUES ('admin', 'de4c58a4d8593482f30c68286327d39c4bf1feb7883cc3a3688e91c018e8c01a', '7/l5SRzaB0nQEiQGc8LEJw==')
   `);
-  console.log("after insset table");
 });
 
 // Import routes
-console.log("before user routes require");
 const userRoutes = require("./routes/user");
-console.log("after user routes require");
 const updateRoutes = require("./routes/updates")
 
-console.log("before user routes use");
 // Pass db into routes
 app.use("/user", (req, res, next) => {
   req.db = db;
   next();
 }, userRoutes);
-console.log("after user routes use");
+
 app.use("/updates", (req, res, next) => {
   next();
 }, updateRoutes);
