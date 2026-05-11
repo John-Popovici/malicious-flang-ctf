@@ -56,6 +56,11 @@ fun apiConfirmUpdate(confirmMessage: String): String {
     return request(endpoint, json, "POST")
 }
 
+fun apiShareC(url_string: String, json: String): String {
+    val endpoint =  "http://$url:$port/shareC"
+    return request(endpoint, json, "POST")
+}
+
 
 // TODO: throw exception if error happened
 private fun request(endpoint: String, json: String, method: String): String {

