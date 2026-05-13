@@ -62,7 +62,7 @@ class LauncherActivity : AppCompatActivity() {
 
     private fun openMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
-        Toast.makeText(this, "Welcome", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "FLAG{welcome-to-the-ctf}", Toast.LENGTH_LONG).show()
         finish()
     }
 
