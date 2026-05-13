@@ -41,6 +41,7 @@ target_link_libraries(cflang m)
 
 # Find required Android libraries
 find_library(log-lib log)
+find_library(android-lib android)
 
-# Link Android log library for JNI logging
-target_link_libraries(cflang ${log-lib})
+# Link Android libraries for JNI logging and asset access
+target_link_libraries(cflang ${log-lib} ${android-lib})

@@ -19,7 +19,7 @@ The server code is located in the `server/` directory and serves as a server for
 To launch the server, run the following command in the `server/` directory:
 
 ```bash
-npm install]
+npm install
 npm rebuild # if you are on a different platform
 node server.js
 ```
