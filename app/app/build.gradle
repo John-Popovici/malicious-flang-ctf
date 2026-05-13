@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "de.tadris.flang"
-        minSdkVersion 23
+        minSdkVersion 27
         targetSdkVersion 36
         versionCode 23
         versionName "1.20"
