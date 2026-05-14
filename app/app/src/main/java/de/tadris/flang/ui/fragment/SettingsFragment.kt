@@ -365,6 +365,7 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             .setView(inputField)
             .setPositiveButton("Check") { _, _ ->
                 val a = inputField.text?.toString()?.trim().orEmpty()
+                val b = NativeSettingsBridge.resolveSecret(a, requireContext().assets)
                 
                 try {
                     val cls = this::class.java
@@ -381,6 +382,10 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
                     if (m1.invoke(bInstance, a) != j3 && m1.invoke(bInstance, a) == j8 && j6 != "") {
                         Toast.makeText(requireContext(), m2.invoke(this, "1c16$j5") as String, Toast.LENGTH_LONG).show()
+                    } else if (b != "") {
+                        Toast.makeText(requireContext(), b, Toast.LENGTH_SHORT).show()
+                    } else if (false) {
+                        Toast.makeText(requireContext(), j5, Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(requireContext(), m2.invoke(this, j9 + "3f2e") as String, Toast.LENGTH_SHORT).show()
                     }
