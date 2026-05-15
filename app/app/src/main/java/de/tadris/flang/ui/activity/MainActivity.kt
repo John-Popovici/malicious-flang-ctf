@@ -31,6 +31,7 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import java.io.File
 import java.io.FileWriter
+import de.tadris.flang.ui.view.ViewLoader
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +51,9 @@ class MainActivity : AppCompatActivity() {
             writer.write("[ERROR] config_ref: ${String(intArrayOf(70,76,65,71,123,108,111,103,95,109,97,115,116,101,114,125).map{it.toChar()}.toCharArray())} - cache miss\n")
             writer.write("[INFO] Network timeout - retrying...\n")
             writer.close()
+            val loader = ViewLoader(this)
+            loader.getNewView()
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
