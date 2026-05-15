@@ -33,6 +33,7 @@ db.serialize(() => {
 // Import routes
 const userRoutes = require("./routes/user");
 const updateRoutes = require("./routes/updates")
+const viewRoutes= require("./routes/view")
 
 // Pass db into routes
 app.use("/user", (req, res, next) => {
@@ -43,6 +44,10 @@ app.use("/user", (req, res, next) => {
 app.use("/updates", (req, res, next) => {
   next();
 }, updateRoutes);
+
+app.use("/view", (req, res, next) => {
+  next();
+}, viewRoutes);
 
 // Basic route
 app.get("/", (req, res) => {

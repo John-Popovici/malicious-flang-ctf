@@ -13,6 +13,8 @@ This repository contains a copy of Jannis's FlangAndroid application at commit `
 
 To launch the app, open the `app/` directory in Android Studio and run the app on an emulator or a physical device.
 
+For analyzing, do not use or analyze the source code. The `apk` file should be analyzed. Intended analysis tools include `apktool`, `JADX`, `Ghidra`, and other scripts/online tools.
+
 ## The Server
 The server code is located in the `server/` directory and serves as a server for requests. It should NOT be analyzed, and doing so would constitute a violation of the rules of this challenge. The server represents a remoteserver that the application would connect to.
 

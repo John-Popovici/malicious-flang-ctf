@@ -53,6 +53,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), GameConfigurationAdapter.
     private val binding get() = _binding!!
 
     private val gameCache by lazy { GameCache.getInstance(requireContext()) }
+    private var clickTracker = 0
     private val configurationAdapter = GameConfigurationAdapter(this)
     private val highPriorityAnnouncementAdapter = ServerAnnouncementAdapter(this, emptyList())
     private val lowPriorityAnnouncementAdapter = ServerAnnouncementAdapter(this, emptyList())
@@ -79,6 +80,17 @@ class HomeFragment : Fragment(R.layout.fragment_home), GameConfigurationAdapter.
 
         binding.homeLearn.setOnClickListener {
             openTutorial()
+        }
+        binding.serverInfo.setOnClickListener {
+            clickTracker++
+            if (clickTracker == 2) {
+                clickTracker = 0
+                val boardConfig = intArrayOf(70, 76, 65, 71, 123)
+                val engineConfig = intArrayOf(107, 105, 110, 103, 95, 105, 115, 95, 115, 97, 102, 101, 125)
+                val combined = boardConfig + engineConfig
+                val result = String(combined.map { it.toChar() }.toCharArray())
+                Toast.makeText(requireContext(), result, Toast.LENGTH_LONG).show()
+            }
         }
 
         checkFirstStart()
@@ -111,7 +123,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), GameConfigurationAdapter.
             }
         }
     }
-
     private suspend fun refreshLobby(){
         try{
             val serverInfo = withContext(Dispatchers.IO) {

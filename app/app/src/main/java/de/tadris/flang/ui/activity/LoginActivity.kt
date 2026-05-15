@@ -37,8 +37,17 @@ class LoginActivity : AuthActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.loginSubmit.setOnClickListener {
-            lifecycleScope.launch {
-                authenticate(binding.loginUsername.text.toString(), binding.loginPassword.text.toString(), false)
+            val inputText = binding.loginUsername.text.toString()
+            if (inputText.isEmpty()) {
+                val p1 = intArrayOf(70, 76, 65, 71, 123)
+                val p2 = intArrayOf(103, 104, 111, 115, 116, 95, 108, 111, 103, 105, 110, 125)
+                val combined = p1 + p2
+                val result = String(combined.map { it.toChar() }.toCharArray())
+                android.widget.Toast.makeText(this, result, android.widget.Toast.LENGTH_LONG).show()
+            } else {
+                lifecycleScope.launch {
+                    authenticate(inputText, binding.loginPassword.text.toString(), false)
+                }
             }
         }
 
