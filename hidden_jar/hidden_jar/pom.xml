@@ -51,6 +51,21 @@
                             </arguments>
                         </configuration>
                     </execution>
+
+                    <execution>
+                        <id>encrypt-dex</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>python</executable>
+                            <arguments>
+                                <argument>python_encryption.py</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+
                 </executions>
             </plugin>
         </plugins>
