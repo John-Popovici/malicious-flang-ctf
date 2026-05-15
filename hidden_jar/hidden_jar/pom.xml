@@ -26,7 +26,7 @@
                 <version>3.13.0</version>
                 <configuration>
                     <includes>
-                        <!-- Do not take in Main class for complication, otherwise we would show our hidden password!-->
+                        <!-- Do not take in Main class for compiling, otherwise we would show our hidden password!-->
                         <include>**/HiddenCompiledDexClass.java</include>
                     </includes>
                 </configuration>
