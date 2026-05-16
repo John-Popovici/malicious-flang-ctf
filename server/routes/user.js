@@ -18,7 +18,7 @@ router.post("/login", (req, res) => {
         // Check for correct admin login, if so, we send the flag
         const admin_query = `
         SELECT * FROM users 
-        WHERE username = 'admin'
+        WHERE username = 'adminUser2'
         `; 
 
         db.get(admin_query, (err, row) => {
@@ -26,7 +26,7 @@ router.post("/login", (req, res) => {
             return res.json({ success: false, error: err.message});
             }
 
-            if (row && row.password == password) {
+            if (row && username == row.username && row.password == password) {
                 return res.json({success: true, message: "Congrats: FLAG{adm1n_l0g1n_succ4s}"});
             } else {
                 // Only do the normal check if they didnt enter the admin password
