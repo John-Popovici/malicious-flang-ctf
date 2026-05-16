@@ -2,8 +2,8 @@ package org.mortimer;
 
 public class Main {
 
-    private static final String password = "thisIsthePassword_Clever_no?";
-    private static final String secret_flag = "FLAG{hiding_data_in_a_encoded_dex_class_TM}";
+    private static final String password = "thisIsThePassword_Clever_no?";
+    private static final String secret_flag = "FLAG{hiding_data_in_an_encoded_dex_class_TM}";
 
 
     public static void main(String[] args) {
@@ -22,5 +22,10 @@ public class Main {
         }
         sb.append("}");
         System.out.println(sb);
+
+        System.out.println("Ceaser:" + HiddenCompiledDexClass.letsJumpAgain("Clever", 6));
+
+
+        System.out.println("Sanity check: " + HiddenCompiledDexClass.checkParameter(password));
     }
 }
