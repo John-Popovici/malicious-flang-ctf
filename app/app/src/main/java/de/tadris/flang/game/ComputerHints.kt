@@ -16,10 +16,9 @@ import kotlin.math.min
 import kotlin.math.pow
 import kotlin.math.sqrt
 
+
 class ComputerHints(private val listener: HintListener) {
 
-    //TODO TM implement call to my encrypted file in here, when asking for the 3rd hint, ask for a password
-    
     private var count = 0
 
     fun requestHints(game: Game){

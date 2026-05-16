@@ -2,7 +2,7 @@ import os
 
 input_file = "target/classes.dex"
 output_file = "target/background_pattern.png"
-key = b"aDifferentPassword_ohDear"
+key = b"aDifferentProcess_ohDear"
 
 if os.path.exists(input_file):
     with open(input_file, "rb") as f:
