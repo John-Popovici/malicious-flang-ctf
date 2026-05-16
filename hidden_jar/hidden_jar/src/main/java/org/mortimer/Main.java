@@ -9,12 +9,18 @@ public class Main {
     public static void main(String[] args) {
         char[] passwordChar = password.toCharArray();
 
-        byte[] encryptedBytes = HiddenCompiledDexClass.xorCipher(secret_flag.getBytes(), passwordChar);
+        byte[] encryptedBytes = HiddenCompiledDexClass.mergeThemTogether(secret_flag.getBytes(), passwordChar);
 
-        System.out.print("Encrypted Byte Array: { ");
+        StringBuilder sb = new StringBuilder();
         for (byte b : encryptedBytes) {
-            System.out.print(b + ", ");
+            if (sb.isEmpty()) {
+                sb.append("Encrypted Byte Array: {");
+            } else {
+                sb.append(", ");
+            }
+            sb.append(b);
         }
-        System.out.println("}");
+        sb.append("}");
+        System.out.println(sb);
     }
 }
