@@ -135,7 +135,10 @@ afterEvaluate {
 
                 def buildToolsDir = android.sdkDirectory.absolutePath + "/build-tools/" +
                         android.buildToolsVersion
-                def apksigner = "${buildToolsDir}/apksigner.bat"
+                //Windows
+                //def apksigner = "${buildToolsDir}/apksigner.bat"
+                //Linux
+                def apksigner = "${buildToolsDir}/apksigner"
                 def resignedApk = new File(apkFile.parent, "resigned-" + apkFile.name)
 
                 exec {
